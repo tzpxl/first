@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>乐易达欢迎您</title>
+    <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/public.css" />
+  </head>
+
+  <body>
+    <!-- 公共样式导航栏 -->
+    <header>
+      <div class="header-cen">
+        <div class="yc">
+          <div class="logo">
+            <a href="#"> <img src="imags/logo.png" width="133" height="44"/></a>
+          </div>
+          <div class="nav">
+            <span><a href="#">首 页</a></span>
+            <span><a href="#">定制旅行</a></span>
+            <span><a href="#">定制师</a></span>
+            <span><a href="#">旅游信息</a></span>
+            <span><a href="#">目的地</a></span>
+            <span><a href="#">旅游助手</a></span>
+            <span><a href="#">机票</a></span>
+            <span><a href="#">酒店</a></span>
+            <span><a href="#">关于我们</a></span>
+            <button>登录</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+    <!-- 底部公共样式 -->
+    <div class="footer">
+      <div class="wrap">
+        <div class="copyright">
+          <img src="imags/logo.png" />
+          | 易乐达旅行 | 专注全球私人定制 | 私人定制旅游 公司定制旅游 |
+          地址：杭州市费家路588号<br />
+          沪ICP备15046814号-1号
+          *本网站部分图片来自网络，若作者看到，请尽快与易乐达旅行联系。
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(window).bind("load", function() {
+        var footerHeight = 0;
+        var footerTop = 0;
+        positionFooter();
+        function positionFooter() {
+          // 获取页脚的高度
+          footerHeight = $(".footer").height();
+          // 获取页脚的高度
+          /*
+            scrollTop() 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+        */
+          footerTop =
+            $(window).scrollTop() + $(window).height() - footerHeight + "px";
+          //如果页面内容高度小于屏幕高度，div#footer将绝对定位到屏幕底部，否则div#footer保留它的正常静态定位
+          if ($(document.body).height() + footerHeight < $(window).height()) {
+            $(".footer")
+              .css({ position: "absolute", left: "0" })
+              .stop()
+              .css({ top: footerTop });
+          }
+        }
+        $(window)
+          .scroll(positionFooter)
+          .resize(positionFooter);
+      });
+    </script>
+  </body>
+</html>

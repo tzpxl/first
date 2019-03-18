@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>注册</title>
+    <script src="js/y-registered.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/y-registered.css" />
+    <link rel="stylesheet" href="icon/iconfont.css" />
+  </head>
+  <body>
+    <!-- 头部-->
+    <header>
+      <div class="poto">
+        <img src="imags/logo.png" alt="" />
+      </div>
+      <div class="welcome">
+        <span>乐易达欢迎您注册</span>
+      </div>
+    </header>
+
+    <!-- 主体-->
+    <main>
+      <div class="box">
+        <!-- 手机号码-->
+        <div class="text">
+          <span>手机号码:</span><input type="text" value="" id="cellphone"  oninput="value=value.replace(/[^\d]/g,'')"/>
+          <div class="error" id="cellphone1">你输入的号码不正确</div>
+        </div>
+        <!-- 账号-->
+        <div class="text"><span>账号:</span><input type="text" value="" id="account"/>
+         <div class="error" id="account1">账号格式不正确</div>
+        </div>
+        <!-- 密码-->
+        <div class="text"><span>密码:</span><input type="password" value="" id="password"/>
+        <div class="error" id="password1">密码不能为空</div>
+        <div id="password2" style="display: none; float: right;color: red;">密码格式不正确</div>
+        </div>
+        <!-- 确认密码-->
+        <div class="text">
+          <span>确认密码:</span><input type="password" value="" id="confirm"/>
+          <div class="error" id="confirm1">两次密码不一致</div>
+        </div>
+        <!-- 用户名-->
+        <div class="text">
+          <span>用户名:</span><input type="text" value="" id="username"/>
+          <div class="error" id="username1">用户名格式错误</div>
+          <div id="add" style="display: none; float: right; color: red;">不能有特殊字符</div>
+        </div>
+        <!-- 注册按钮-->
+        <div class="bottom" id="buttom">
+          <span><b>注册</b></span>
+        </div>
+      </div>
+    </main>
+
+    <!-- 底部公共样式 -->
+    <div class="footer">
+      <div class="wrap">
+        <div class="copyright">
+          <img src="imags/logo.png" />
+          | 易乐达旅行 | 专注全球私人定制 | 私人定制旅游 公司定制旅游 |
+          地址：杭州市费家路588号<br />
+          沪ICP备15046814号-1号
+          *本网站部分图片来自网络，若作者看到，请尽快与易乐达旅行联系。
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+        $(window).bind("load", function() {
+          var footerHeight = 0;
+          var footerTop = 0;
+          positionFooter();
+          function positionFooter() {
+            // 获取页脚的高度
+            footerHeight = $(".footer").height();
+            // 获取页脚的高度
+            /*
+              scrollTop() 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+          */
+            footerTop =
+              $(window).scrollTop() + $(window).height() - footerHeight + "px";
+            //如果页面内容高度小于屏幕高度，div#footer将绝对定位到屏幕底部，否则div#footer保留它的正常静态定位
+            if ($(document.body).height() + footerHeight < $(window).height()) {
+              $(".footer")
+                .css({ position: "absolute", left: "0" })
+                .stop()
+                .css({ top: footerTop });
+            }
+          }
+          $(window)
+            .scroll(positionFooter)
+            .resize(positionFooter);
+        });
+      </script>
+  </body>
+</html>
