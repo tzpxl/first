@@ -1,0 +1,270 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+legend {
+  color: #000;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+header {
+  height: 100px;
+}
+header .hard {
+  margin: 0 auto;
+  width: 1280px;
+  height: 100px;
+}
+header .hard .poto {
+  float: left;
+  width: 320px;
+  height: 100px;
+}
+header .hard .poto img {
+  width: 100%;
+  height: 100%;
+}
+header .hard .welcome {
+  float: left;
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+}
+header .hard .welcome span {
+  font-size: 20px;
+}
+.main {
+  overflow: hidden;
+  width: 100%;
+  height: 700px;
+}
+.main .dialog {
+  position: relative;
+  margin: 0 auto;
+  width: 1280px;
+  height: 494px;
+}
+.main .dialog img {
+  margin-left: -320px;
+  left: 50%;
+}
+.main .dialog .dl {
+  position: absolute;
+  top: 20px;
+  left: 850px;
+  width: 400px;
+  height: 426px;
+  border: 1px solid #bbbbbb;
+  background: #fff;
+}
+.main .dialog .dl .dl1 {
+  margin: 0 auto;
+  width: 300px;
+  height: 426px;
+}
+.main .dialog .dl .dl1 .dl-top {
+  padding-top: 30px;
+  width: 300px;
+  height: 30px;
+  text-align: center;
+  border-bottom: 1px solid #bbbbbb;
+}
+.main .dialog .dl .dl1 .dl-top li {
+  float: left;
+  height: 29px;
+  margin-left: 20px;
+  width: 120px;
+}
+.main .dialog .dl .dl1 .account {
+  width: 280px;
+  height: 200px;
+}
+.main .dialog .dl .dl1 .account .account1 {
+  padding-left: 20px;
+  width: 300px;
+  height: 40px;
+  margin-top: 30px;
+}
+.main .dialog .dl .dl1 .account .account1 input {
+  height: 30px;
+  padding-left: 5px;
+}
+.main .dialog .dl .dl1 .account .bottom-login {
+  margin: 15px auto;
+  width: 70px;
+  height: 30px;
+  background: #AD4B07;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+}
+.main .dialog .dl .dl1 .forget {
+  width: 300px;
+  height: 20px;
+}
+.main .dialog .dl .dl1 .forget a {
+  text-decoration: none;
+  color: #000;
+}
+.main .dialog .dl .dl1 .way {
+  float: left;
+  width: 300px;
+  height: 100px;
+}
+.main .dialog .dl .dl1 .way .way1 {
+  float: left;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+.main .dialog .dl .dl1 .way .way1 .iconfont {
+  font-size: 30px;
+}
+.name {
+  border-bottom: 2px solid green;
+}
+.footer {
+  min-width: 1200px;
+  background: #FF9800;
+  text-align: center;
+  height: 116px;
+  color: #101010;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer .copyright {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 220px;
+  line-height: 24px;
+  padding-top: 10px;
+}
+.footer .copyright img {
+  position: absolute;
+  width: 133px;
+  height: 44px;
+  left: 30px;
+  top: 30px;
+}
+.footer .wrap {
+  width: 1200px;
+  margin: auto;
+}
+@media screen and (max-width: 1200px) {
+  .footer {
+    min-width: 980px;
+    background: #FF9800;
+    text-align: center;
+    height: 116px;
+    color: #101010;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer .copyright {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 220px;
+    line-height: 24px;
+    padding-top: 10px;
+  }
+  .footer .copyright img {
+    position: absolute;
+    width: 133px;
+    height: 44px;
+    left: 30px;
+    top: 30px;
+  }
+  .footer .wrap {
+    width: 980px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>订单</title>
+    <script src="js/y-order.js"></script>
+    <link rel="stylesheet" href="css/y-order.css" />
+    <link rel="stylesheet" href="icon/iconfont.css" />
+  </head>
+  <body>
+    <!-- 顶部返回样式-->
+    <header>
+      <div class="hard">
+        <i class="iconfont iconshuangjiantou-copy-copy-copy"></i>
+        <span>返回</span>
+      </div>
+    </header>
+
+    <!-- 订单详情-->
+    <div class="details">
+      <div class="details1">
+        <div class="tickets"><span id="name">中国黄酒博物馆门票成人票</span></div>
+        <div class="list">
+          <div class="list1">
+            <span>购票日期:</span>
+            <div class="data" id="data"></div>
+          </div>
+          <div class="list1">
+            <span>购票数量:</span><input type="text" value="" id="quantity" onkeyup="value=value.replace(/[^\d]/g,'')"/>
+            <div class="li-left" id="left-1" style="display: none;color: red;">您输入的数字过大</div>
+          </div>
+          <div class="list1">
+            <span>购票金额:</span><input type="text" value="188" id="amount" style="border: 0;" readonly  unselectable="on"/>元
+          </div>
+
+          <div class="bottom-button" id="confirm">确认提交订单</div><div id="car" style="color: red;display: none;">订单出错</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

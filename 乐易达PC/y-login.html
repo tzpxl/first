@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>登录</title>
+    <script src="js/y-login.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/y-login.css" />
+    <link rel="stylesheet" href="icon/iconfont.css" />
+  </head>
+  <body>
+    <!-- 头部-->
+    <header>
+      <div class="hard">
+        <div class="poto">
+          <img src="imags/logo.png" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <!-- 具体部分-->
+    <div class="main">
+      <div class="dialog">
+        <img src="imags/图片/登录背景.jpg" alt="" />
+        <div class="dl">
+          <div class="dl1">
+            <!-- 顶部点击按钮-->
+            <div class="dl-top">
+              <ul>
+                <li
+                  id="name"
+                  style="border-bottom: 2px solid green;cursor: pointer;"
+                  class=""
+                >
+                  账号密码登录
+                </li>
+                <li id="yzm" style="cursor: pointer;" class="">验证码登录</li>
+              </ul>
+            </div>
+            <!-- 输入框-->
+            <!-- 账号密码登录-->
+            <div class="account" id="acc">
+              <div class="account1">
+                <span>账号:&nbsp;</span
+                ><input id="zh" type="text" value="" placeholder="请输入账号" />
+              </div>
+              <div class="account1">
+                <span>密码:&nbsp;</span
+                ><input id="mm" type="password" value="" placeholder="请输入密码" />
+              </div>
+              <div class="bottom-login" id="int">登录</div>
+            </div>
+
+            <!-- 验证码登录-->
+            <div class="account" style="display: none;" id="ount">
+              <div class="account1">
+                <span>手机号:&nbsp;</span
+                ><input type="text" value="" placeholder="请输入手机号" />
+              </div>
+              <div class="account1">
+                <span>验证码:&nbsp;</span
+                ><input type="password" value="" placeholder="请输入验证码" />
+              </div>
+              <div class="bottom-login">登录</div>
+            </div>
+            <!-- 忘记密码-->
+            <div class="forget">
+              <a href="" style="float: left;">新用户注册</a>
+              <a href="" style="float: right;">忘记密码</a>
+            </div>
+            <!-- 登录方式-->
+            <div class="way">
+              <div class="way1"><i class="iconfont iconweixin"></i></div>
+              <div class="way1"><i class="iconfont iconQQ"></i></div>
+              <div class="way1"><i class="iconfont iconweibo-copy"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部公共样式 -->
+    <div class="footer">
+      <div class="wrap">
+        <div class="copyright">
+          <img src="imags/logo.png" />
+          | 易乐达旅行 | 专注全球私人定制 | 私人定制旅游 公司定制旅游 |
+          地址：杭州市费家路588号<br />
+          沪ICP备15046814号-1号
+          *本网站部分图片来自网络，若作者看到，请尽快与易乐达旅行联系。
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(window).bind("load", function() {
+        var footerHeight = 0;
+        var footerTop = 0;
+        positionFooter();
+        function positionFooter() {
+          // 获取页脚的高度
+          footerHeight = $(".footer").height();
+          // 获取页脚的高度
+          /*
+              scrollTop() 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+          */
+          footerTop =
+            $(window).scrollTop() + $(window).height() - footerHeight + "px";
+          //如果页面内容高度小于屏幕高度，div#footer将绝对定位到屏幕底部，否则div#footer保留它的正常静态定位
+          if ($(document.body).height() + footerHeight < $(window).height()) {
+            $(".footer")
+              .css({ position: "absolute", left: "0" })
+              .stop()
+              .css({ top: footerTop });
+          }
+        }
+        $(window)
+          .scroll(positionFooter)
+          .resize(positionFooter);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+img{
+    vertical-align:top;
+   
+}
+
+
+//导航栏公共样式  1200px 的样式
+header{
+    min-width:1200px;
+    //overflow: hidden;
+   height: 100px;
+   background: #A8B5B3;
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    .header-cen{
+        width: 1200px;
+        //padding-top: 28px;
+        position: relative;
+        //top: 0;
+        margin:0 auto;
+        z-index: 222;
+       
+        
+    }
+    .yc{
+        width: 1093px;
+        //position: absolute;
+        //top: 28px;  
+        height: 72px;
+        margin: 0 auto;
+        padding-top: 28px;
+
+    }
+    .logo{
+        width: 133px;
+        height: 44px;
+        float: left;       
+    }
+    .nav{
+        height: 44px;
+        width: 960px;
+        //padding-left: 38px;
+        float: left;
+        span{
+            display: inline-block;
+            //float: left;
+            text-align: center;
+            height: 54px;
+            line-height: 54px;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+    }
+    button{
+        background: #9d714d;
+        border: none;
+        border-radius: 8px;
+        width: 80px;
+        height: 34px;
+        text-align: center;
+        line-height: 34px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 25px;
+        color: #FFF;
+    }
+}
+//底部样式
+.footer{
+    min-width: 1200px;
+     background: #FF9800;
+     text-align: center;
+     height: 116px;
+     color: #bbbbbb;
+     font-size: 14px;
+    //  position: fixed;
+    //  bottom: 0;
+     width: 100%;
+     .copyright{
+         position: relative;
+         margin: 0 auto;
+         padding-left: 220px;
+         line-height: 24px;
+         padding-top: 10px;
+         img{
+             position: absolute;
+             width: 133px;
+             height: 44px;
+             left: 30px;
+             top: 30px;
+         }
+     }
+     .wrap{
+         width: 1200px;
+         margin: auto;
+     }
+ }
+ 
+// 1200px以下的css  //变成980px;
+//980px 头部
+@media screen and (max-width: 1200px){
+    header{
+        min-width:980px;   
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        .header-cen{
+            width: 980px;
+            //padding-top: 28px;
+            position: relative;
+            //top: 0;
+            margin:0 auto;
+            z-index: 222;
+        }
+        .yc{
+            width: 980px;
+         //position: absolute;
+           // top: 28px;  
+           margin:  0 auto;
+           padding-top: 28px;
+            height: 72px;
+        }  
+        .nav{
+            height: 44px;
+            width: 800px;
+            //padding-left: 38px;
+            float: left;
+            span{
+                display: inline-block;
+                //float: left;
+                text-align: center;
+                height: 54px;
+                line-height: 54px;
+                padding: 0 10px;
+                font-size: 14px;
+            }
+        }   
+    }
+    //980px底部
+    .footer{
+        min-width: 980px;
+         background: #FF9800;
+         text-align: center;
+         height: 116px;
+         color: #bbbbbb;
+         font-size: 14px;
+        //  position: fixed;
+        //  bottom: 0;
+        width: 100%;
+         .copyright{
+             position: relative;
+             margin: 0 auto;
+             padding-left: 220px;
+             line-height: 24px;
+             padding-top: 10px;
+             img{
+                 position: absolute;
+                 width: 133px;
+                 height: 44px;
+                 left: 30px;
+                 top: 30px;
+             }
+         }
+         .wrap{
+             width: 980px;
+             margin: auto;
+         }
+     }
+}
+
+

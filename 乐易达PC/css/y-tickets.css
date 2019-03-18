@@ -1,0 +1,46 @@
+.main {
+  margin: 0 auto;
+  width: 980px;
+}
+.main .box {
+  overflow: hidden;
+  margin: 50px 20px;
+}
+.main .box .box-img {
+  float: left;
+}
+.main .box .box-img img {
+  width: 300px;
+  height: 175px;
+}
+.main .box .box-nr {
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.main .box h1 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.main .box .jieshao {
+  margin-bottom: 5px;
+  color: #999999;
+  font-size: 15px;
+}
+.main .box .jiage {
+  margin-bottom: 5px;
+  color: #FF9800;
+  font-size: 30px;
+}
+.main .box .goumai {
+  margin-top: 20px;
+  border-radius: 5px;
+  background: #FF9800;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
