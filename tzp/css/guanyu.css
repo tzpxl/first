@@ -1,0 +1,119 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+/* 页面内容 */
+nav {
+  width: 100%;
+}
+nav .t_nav_1 {
+  width: 1200px;
+  margin: 20px auto;
+}
+nav .t_nav_1 .t_nav_1_1 {
+  width: 400px;
+  color: #ff9800;
+  margin-left: 150px;
+  /* text-align: center; */
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+nav .t_nav_1 #t_nav_a {
+  width: 800px;
+  margin: 0 auto;
+}
+nav .t_nav_1 #t_nav_a p {
+  height: 25px;
+}
+nav .t_nav_1 #t_nav_b {
+  width: 800px;
+  margin: 0 auto;
+}
+nav .t_nav_1 #t_nav_b p {
+  height: 25px;
+}
+nav .t_nav_1 #t_nav_c {
+  width: 800px;
+  margin: 0 auto;
+}
+nav .t_nav_1 #t_nav_c p {
+  height: 25px;
+}
+nav .t_nav_1 #t_nav_d {
+  width: 800px;
+  margin: 0 auto;
+}
+nav .t_nav_1 #t_nav_d p {
+  height: 25px;
+}
