@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 头部 */
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 0.6rem; 
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+}
+#header span{
+    width: 1rem;
+    height: 100%;
+    margin-left:0.1rem; 
+    line-height: 0.6rem;
+    font-size: 0.24rem;
+}
+#header span:first-child{
+    color: #BBBBBB;
+    font-size: 0.24rem;
+}
+#header span:nth-child(2){
+    text-align: center;
+}
+/* 旅行社推荐 */
+#recommended{
+    width: 7rem;
+    height: 6rem;
+    margin: 0.2rem auto;
+    border: 0.01rem solid rgba(187, 187, 187, 1);
+}
+/* 推荐头部  */
+.recom_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 0.4rem;
+    background-color: rgba(242, 237, 237, 1);
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+}
+.recom_top span{
+    width: 1rem;
+    margin-left:0.1rem; 
+    line-height: 0.4rem;
+    font-size: 0.2rem;
+}
+/* 推荐内容  */
+.recom_con{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center; 
+    width: 100%;
+    height: 5.8rem;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    width: 6rem;
+    height: 1.5rem;
+}
+.club{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.group{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.group img{
+    width: 100%;
+    height: 100%;
+}
+.information{
+    width: 4.5rem;
+    height: 1.2rem;
+    font-size: 0.2rem;
+    font-family: SourceHanSansSC-regular;
+}
+.information p{
+    margin-top: 0.1rem;
+}
+.information p:first-child{
+    font-size: 0.25rem;
+}
+.information p:first-child{
+    color: #f50;
+}
+/* 旅行社排行 */
+#recommended2{
+    width: 7rem;
+    height: 6rem;
+    margin: 0.2rem auto;
+    border: 0.01rem solid rgba(187, 187, 187, 1);
+}
+/* 排行头部 */
+.recom_top2{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 0.4rem;
+    background-color: rgba(242, 237, 237, 1);
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+}
+.recom_top2 span{
+    width: 1rem;
+    margin-left:0.1rem; 
+    line-height: 0.4rem;
+    font-size: 0.2rem;
+}
+/* 导航 */
+.recom_nav{
+    width: 100%;
+    height: 0.4rem;
+    font-size: 0.2rem;
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+}
+.nav_list{
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 0.4rem;
+}
+/* 排行 */
+.ranking{
+    width: 100%;
+    height: 5rem;
+    margin-top: 0.2rem;
+}
+.list1{
+    background-color: #FF9800;
+}
+.list_of{
+    margin-bottom: 0.2rem;
+    width: 100%;
+    height: 0.3rem;
+    font-size: 0.2rem;
+}
+.list_of span{
+    margin: 0.2rem;
+}   
+.list_of span:first-child{
+    color: #f50;
+}
+.list_of span:nth-child(2){
+    color: #101010;
+}

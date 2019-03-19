@@ -1,0 +1,208 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+body {
+  font-size: 0.24rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+legend {
+  color: #000;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 0.6rem;
+  border-bottom: 0.01rem solid #bbbbbb;
+}
+#header span {
+  width: 1rem;
+  height: 100%;
+  margin-left: 0.1rem;
+  line-height: 0.6rem;
+  font-size: 0.24rem;
+}
+#header span:first-child {
+  color: #BBBBBB;
+  font-size: 0.24rem;
+}
+#header span:nth-child(2) {
+  text-align: center;
+}
+#centent1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#centent1 .rental {
+  width: 6rem;
+  height: 5rem;
+  border-bottom: 0.01rem solid rgba(255, 0, 0, 0.5);
+}
+#centent1 .rental .rental_top {
+  width: 100%;
+  height: 0.6rem;
+}
+#centent1 .rental .rental_top span {
+  margin-left: 1rem;
+  line-height: 0.6rem;
+  color: #101010;
+  font-family: SourceHanSansSC-bold;
+  font-weight: bold;
+}
+#centent1 .rental .domestic {
+  width: 100%;
+  height: 4.4rem;
+}
+#centent1 .rental .domestic .talk {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 0.6rem;
+  color: #101010;
+  font-family: SourceHanSansSC-regular;
+}
+#centent1 .rental .domestic .talk input:first-child {
+  width: 1rem;
+  height: 0.4rem;
+  margin: 0 0.4rem  0.5rem;
+  text-align: center;
+  border: 0.01rem solid #BBBBBB;
+}
+#centent1 .rental .domestic .talk input:nth-child(2) {
+  width: 1.5rem;
+  height: 0.4rem;
+  text-align: center;
+  border: 0.01rem solid #BBBBBB;
+}
+#centent1 .rental .domestic .lease {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 0.6rem;
+  color: #101010;
+  font-family: SourceHanSansSC-regular;
+}
+#centent1 .rental .domestic .lease input {
+  width: 2.8rem;
+  height: 0.4rem;
+  margin: 0 0.4rem;
+  text-align: center;
+  border: 0.01rem solid #BBBBBB;
+}
+#centent1 .rental .domestic .zhuanhuan {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1.2rem;
+}
+#centent1 .rental .domestic .zhuanhuan .iconfont {
+  width: 0.5rem;
+  height: 0.5rem;
+  text-align: center;
+}
+#centent1 .rental .domestic .lease2 {
+  width: 100%;
+  height: 0.6rem;
+  font-family: SourceHanSansSC-regular;
+}
+#centent1 .rental .domestic .lease2 input:first-child {
+  width: 2.8rem;
+  height: 0.4rem;
+  margin: 0 0.9rem;
+  text-align: center;
+  border: 0.01rem solid #BBBBBB;
+}

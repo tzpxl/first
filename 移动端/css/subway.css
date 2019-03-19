@@ -1,0 +1,182 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+body {
+  font-size: 0.24rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+legend {
+  color: #000;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 0.6rem;
+  border-bottom: 0.01rem solid #bbbbbb;
+}
+#header span {
+  width: 1.2rem;
+  height: 100%;
+  margin-left: 0.1rem;
+  line-height: 0.6rem;
+  font-size: 0.24rem;
+}
+#header span:first-child {
+  font-size: 0.24rem;
+  color: #BBBBBB;
+}
+#header span:nth-child(2) {
+  text-align: center;
+}
+#city1 {
+  width: 100%;
+}
+#city1 .city_top {
+  width: 100%;
+  height: 0.6rem;
+}
+#city1 .city_top span {
+  margin-left: 0.3rem;
+  line-height: 0.6rem;
+  font-size: 0.24rem;
+  border-bottom: 0.05rem solid rgba(187, 187, 187, 0.8);
+}
+#city1 .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+}
+#city1 .list .listpic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 0.5rem;
+}
+#city1 .list .listpic span {
+  color: #00ff00;
+  line-height: 0.5rem;
+}
+#city2 {
+  width: 100%;
+}
+#city2 .city_top {
+  width: 100%;
+  height: 0.6rem;
+}
+#city2 .city_top span {
+  margin-left: 0.3rem;
+  line-height: 0.6rem;
+  font-size: 0.24rem;
+  border-bottom: 0.05rem solid rgba(187, 187, 187, 0.8);
+}
+#city2 .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+}
+#city2 .list .listpic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 0.5rem;
+}
+#city2 .list .listpic span {
+  color: #f50;
+  line-height: 0.5rem;
+}

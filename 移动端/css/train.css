@@ -1,0 +1,201 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+body {
+  font-size: 0.24rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+legend {
+  color: #000;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* 头部 */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 0.6rem;
+  border-bottom: 0.01rem solid #bbbbbb;
+}
+#header span {
+  width: 1rem;
+  height: 100%;
+  margin-left: 0.1rem;
+  line-height: 0.6rem;
+  font-size: 0.24rem;
+}
+#header span:first-child {
+  color: #BBBBBB;
+  font-size: 0.24rem;
+}
+#header span:nth-child(2) {
+  text-align: center;
+}
+/* 行程 */
+.trip {
+  width: 100%;
+  height: 3.5rem;
+  border-bottom: 0.01rem solid #bbbbbb;
+}
+.trip .travel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 0.7rem;
+}
+.trip .travel input {
+  margin-left: 0.2rem;
+  height: 0.4rem;
+  color: #888888;
+  border-radius: 0.12rem;
+  border: 0.01rem solid #BBBBBB;
+  text-align: center;
+  font-family: Microsoft Yahei;
+}
+.trip .travel .Departure_date {
+  margin-right: 0.2rem;
+}
+.trip .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0.7rem;
+}
+.trip .destination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 2.1rem;
+}
+.trip .destination .group {
+  width: 3rem;
+  height: 1.8rem;
+}
+.trip .destination .group img {
+  width: 100%;
+  height: 100%;
+}
+.trip .destination .city {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 3.5rem;
+  height: 2rem;
+}
+.trip .destination .city input {
+  width: 2.3rem;
+  height: 0.4rem;
+  color: #888888;
+  border-radius: 0.12rem;
+  border: 0.01rem solid #BBBBBB;
+  text-align: center;
+  font-family: Microsoft Yahei;
+}
+.trip .destination .city .queding {
+  display: flex;
+  justify-content: flex-end;
+  width: 3rem;
+  height: 0.4rem;
+  margin-top: 0.2rem;
+}
+.trip .destination .city .aaa {
+  width: 1rem;
+  height: 0.4rem;
+  background-color: #FF9800;
+  border: #FF9800;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0.1rem;
+}

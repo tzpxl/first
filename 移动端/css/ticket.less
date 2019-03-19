@@ -1,0 +1,221 @@
+@import url(../css/index.less);
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 0.6rem; 
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+    span{
+        width: 1.2rem;
+        height: 100%;
+        margin-left:0.1rem; 
+        line-height: 0.6rem;
+        font-size: 0.24rem;
+        }
+        span:first-child{
+            font-size: 0.24rem;
+            color: #BBBBBB;
+        }
+        span:nth-child(2){
+            text-align: center;
+        } 
+}
+#centent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+    width: 100%;
+    height: 8rem;
+    .details{
+        width: 7rem;
+        height: 100%;
+        .details_top{
+            width: 100%;
+            height: 0.6rem;
+            .hot{
+                width: 1.5rem;
+                height: 0.5rem;
+                line-height: 0.6rem;
+                text-align: left;
+                border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+            }
+        }
+        .details_cen{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 0.1rem;
+            width: 100%;
+            height: 7rem;
+        }
+        .flight{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 3.2rem;
+        }
+        
+    }
+}
+.flight .ticket{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.8rem;
+    height: 100%;
+    .picture{
+        width: 100%;
+        height: 1.5rem;
+        img{
+            width: 100%;
+            height: 1.5rem;
+        }
+    }
+    .information{
+        width: 100%;
+        height: 1.5rem;
+        border: 0.01rem solid rgba(187, 187, 187, 1);
+        .information_top{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 0.5rem;
+            span{
+                line-height: 0.5rem;
+                text-align: center;
+                font-size: 0.24rem;
+            }
+        }
+        .information_cen{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            height: 0.5rem;
+            span{
+                font-family: SourceHanSansSC-regular;
+                color: #9F9D9D;
+                font-size: 0.24rem;
+                line-height: 0.5rem;
+            }
+        }
+        .information_fot{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 100%;
+            height: 0.4rem;
+            span{
+                margin-right:0.05rem; 
+                font-size: 0.24rem;
+                line-height: 0.4rem;
+                text-align: center;
+            }
+            span:first-child{
+                width: 0.6rem;
+                height: 0.4rem;
+                color: #A6A2A2;
+                border: 0.01rem solid #BBBBBB;
+            }
+            span:nth-child(2){
+                font-size: 0.15rem;
+                color: red;
+            }
+        }
+    }
+
+}
+#footer{
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+    /* 行程 */
+.trip{
+    width: 100%;
+    height: 3.5rem;
+    border-bottom: 0.01rem solid rgba(187, 187, 187, 1);
+   
+    .travel{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 0.7rem;
+        input{
+           margin-left: 0.2rem;
+           height: 0.4rem;
+           color: rgba(136, 136, 136, 1);
+           border-radius: 0.12rem;
+           border: 0.01rem solid #BBBBBB;
+           text-align: center;
+           font-family: Microsoft Yahei;
+           
+        }
+        .Departure_date{
+            margin-right: 0.2rem;
+           }
+    }
+    .center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 0.7rem;
+    }
+    .destination{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center; 
+        width: 100%;
+        height: 2.1rem;
+        .group{
+            width: 3.5rem;
+            height: 2rem;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+        .city{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            width: 3.2rem;
+            height: 1.8rem;
+           input{
+                width: 2.3rem;
+                height: 0.4rem;
+                color: rgba(136, 136, 136, 1);
+                border-radius: 0.12rem;
+                border: 0.01rem solid #BBBBBB;
+                text-align: center;
+                font-family: Microsoft Yahei;
+            }
+
+            .queding{
+                display: flex;
+                justify-content: flex-end;
+                width: 3rem;
+                height: 0.4rem;
+                margin-top: 0.2rem;
+            }
+            .aaa{
+                width: 1rem;
+                height: 0.4rem; 
+                background-color:#FF9800;
+                border: #FF9800;
+                color: #ffffff;
+                text-align: center;
+                border-radius: 0.1rem;
+            }
+        } 
+    }
+}
+}
