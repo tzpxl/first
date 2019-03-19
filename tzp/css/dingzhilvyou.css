@@ -1,0 +1,157 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 12px/1.5tahoma, arial;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+small {
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+nav {
+  position: relative;
+}
+nav .div_img {
+  width: 100%;
+}
+nav .div_img img {
+  min-width: 1200px;
+  width: 100%;
+  height: 1080px;
+}
+nav .div_img:last-child {
+  width: 100%;
+}
+nav .div_img:last-child img {
+  width: 100%;
+  height: 1003px;
+}
+nav #box {
+  position: absolute;
+  top: 10px;
+  left: 120px;
+  width: 500px;
+  height: 350px;
+  background: #cccccc;
+  opacity: .6;
+}
+nav #box .box1 {
+  width: 200px;
+  margin: 0 auto;
+}
+nav #box .box1 .box1_1 {
+  font-size: 20px;
+  color: #259B24;
+  padding-top: 20px;
+  text-align: center;
+}
+nav #box .box1 .box1_2 {
+  font-size: 20px;
+  color: #222222;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+nav #box .box1 #div1,
+nav #box .box1 #div2 {
+  width: 200px;
+  height: 50px;
+  margin-top: 10px;
+}
+nav #box .box1 #div1 input,
+nav #box .box1 #div2 input {
+  height: 30px;
+}
+nav #box .box1 #div1_1,
+nav #box .box1 #div1_2,
+nav #box .box1 #div2_1,
+nav #box .box1 #div2_2 {
+  color: red;
+  display: none;
+}
+nav #box .box1 #div3 {
+  margin: 0 auto;
+  text-align: center;
+}
+nav #box .box1 #div3 button {
+  border: none;
+  display: inline-block;
+  width: 200px;
+  height: 35px;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #259B24;
+  color: #fff;
+}
+nav #box .box1 #div4 {
+  width: 200px;
+  height: 35px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 13px;
+}
