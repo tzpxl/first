@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>杨楷为</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 500px;
+            height: 60px;
+            background-color: #2D93CA;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .cen {
+            width: 500px;
+            height: 700px;
+            border: 1px solid red;
+            margin: 10px auto;
+            /*margin-top: 10px;*/
+        }
+
+        .head {
+            width: 100%;
+            height: 70px;
+            background: #2b2b2b;
+        }
+
+        .sex {
+            float: left;
+            width: 80px;
+            height: 100%;
+            text-align: center;
+            line-height: 70px;
+            border-right: 1px solid #fff;
+            color: #fff1c8;
+        }
+
+        .xuan {
+            text-align: center;
+            color: #fff;
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+            line-height: 30px;
+            background: #ff9900;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+
+</header>
+
+<div class="cen">
+    <div class="head">
+        <div class="sex">男</div>
+        <div class="sex">女</div>
+        <div class="sex">人妖</div>
+    </div>
+    <div id="content">
+
+    </div>
+</div>
+</body>
+<script>
+    window.onload = function () {
+
+        var Person = [
+            {
+                'name': "张三",
+                'sex': "男",
+                'age': 20,
+                'like': "篮球 宝贝",
+                'infomation': "我头上有犄角"
+            },
+            {
+                'name': "网八",
+                'sex': "男",
+                'age': 22,
+                'like': "足球 宝贝",
+                'infomation': "我身后有尾巴"
+            },
+            {
+                'name': "hanser",
+                'sex': "女",
+                'age': 28,
+                'like': "甜点 kevin",
+                'infomation': "我有很多小秘密"
+            },
+            {
+                'name': "纸质稿",
+                'sex': "人妖",
+                'age': 26,
+                'like': "欧吉金 胖次",
+                'infomation': "私は変態だ"
+            },
+        ]
+        var sexs = document.getElementsByClassName('sex');
+        var header = document.getElementsByTagName('header');
+        console.log(header[0].style.display == "none")
+        for (var i = 0; i < sexs.length; i++) {
+            sexs[i].index = i;
+            sexs[i].onclick = function () {
+                content.innerHTML = "";
+                // header[0].innerHTML = "";
+                for (var j = 0; j < 3; j++) {
+                    sexs[j].style.background = "none";
+                }
+                sexs[this.index].style.background = "#ff9900";
+                //    给标签栏添加选中的标签
+                // console.log(header[0].style.display == "none")
+                if (getComputedStyle(header[0]).display == "none") {
+                    header[0].style.display = "block";
+                    header[0].innerHTML = "<div class='xuan'>" + sexs[this.index].innerHTML + "</div>"
+                } else {
+                    var xuans = document.getElementsByClassName('xuan');
+                    for (var j = 0; j < xuans.length; j++) {
+                        if (xuans[j].innerHTML != sexs[this.index].innerHTML) {
+                            // header[0].innerHTML += "<div class='xuan'>" + sexs[this.index].innerHTML + "</div>"
+                        } else {
+                            break;
+                        }
+                    }
+                    if (j == xuans.length) {
+                        header[0].innerHTML += "<div class='xuan'>" + sexs[this.index].innerHTML + "</div>"
+                    } else {
+
+                    }
+                }
+                var xuans = document.getElementsByClassName('xuan');
+                console.log(xuans.length)
+                //给内容区添加对应的数据信息
+                for (var i = 0; i < Person.length; i++) {
+                    for (let j = 0; j < xuans.length; j++) {
+                        if (Person[i].sex == xuans[j].innerHTML) {
+                            content.innerHTML += "<div>" + "名字：" + Person[i].name + "</div>"
+                                + "<div>" + "性别：" + Person[i].sex + "</div>" +
+                                "<div>" + "年龄：" + Person[i].age + "</div>" +
+                                "<div>" + "爱好：" + Person[i].like + "</div>" +
+                                "<div>" + "个人信息：" + Person[i].infomation + "</div>" + "<br/>"
+                        } else {
+
+                        }
+
+                    }
+                }
+                for (let j = 0; j < xuans.length; j++) {
+                    xuans[j].onclick = function () {
+                        content.innerHTML = "";
+                        this.index = j;
+                        xuans[0].parentElement.removeChild(xuans[j]);
+                        for (var i = 0; i < Person.length; i++) {
+                            for (var x = 0; x < xuans.length; x++) {
+                                if (Person[i].sex == xuans[x].innerHTML) {
+                                    content.innerHTML += "<div>" + "名字：" + Person[i].name + "</div>"
+                                        + "<div>" + "性别：" + Person[i].sex + "</div>" +
+                                        "<div>" + "年龄：" + Person[i].age + "</div>" +
+                                        "<div>" + "爱好：" + Person[i].like + "</div>" +
+                                        "<div>" + "个人信息：" + Person[i].infomation + "</div>" + "<br/>"
+                                } else {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+</html>

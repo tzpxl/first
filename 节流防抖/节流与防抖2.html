@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流防抖</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 5000px;
+      background: red;
+    }
+  </style>
+  <body>
+        <input type="text" name="debounce" id="debounce">
+
+    <script>
+      window.onload = function() {
+        //模拟ajax请求
+        function re(content) {
+          console.log("ajax request " + content);
+        }
+        function debounce(fun, delay) {
+            // console.log(fun);
+          return function(args) {
+            //获取函数的作用域和变量
+            let that = this;
+            let _args = args;
+            //每次事件被触发，都会清除当前的timeer，然后重写设置超时调用
+            clearTimeout(fun.id);//删除由setTimeout 设置的
+            fun.id = setTimeout(function() {
+              fun.call(that, _args);
+            }, delay);
+          };
+        }
+        let inputDebounce = document.getElementById("debounce");
+        let debounceAjax = debounce(re, 500);
+        inputDebounce.addEventListener("keyup", function(e) {
+          debounceAjax(e.target.value);
+        //   console.log(e.target.value);
+        });
+      };
+    </script>
+  </body>
+</html>

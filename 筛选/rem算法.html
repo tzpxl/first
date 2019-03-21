@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 100px;
+        }
+        body{
+            font-size: 16px;
+        }
+        #box{
+            width: 2rem;
+            height: 2rem;
+            border: 0.01rem solid red;
+            position: relative;
+            margin: 0 auto;
+        }
+        #box1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(to right, pink, skyblue);
+            width: 1rem;
+            height: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1"></div>
+    </div>
+</body>
+<script>
+    window.onload= window.onresize=function(){
+        var ass=document.documentElement.clientWidth;
+        if(ass>750){
+            document.documentElement.style.fontSize=100*750/375 + "px";
+        }else{
+            document.documentElement.style.fontSize=ass*100/375 + "px";
+        }
+    }
+</script>
+</html>

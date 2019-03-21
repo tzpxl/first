@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="debounce">
+</body>
+<script>
+    window.onload = function () {
+        
+        window.onkeyup = debounce(function (event) {
+            console.log(event);
+        }, 1000);
+        //去抖
+        function debounce(fn, time) {
+            //闭包里面保存的数据
+            var timer = null;
+            return function () {
+                var self = this;
+                var args = arguments;
+                clearTimeout(timer); //上一次下发还没执行的任务
+                timer = setTimeout(function () {
+                    fn.apply(self, args);
+                }, time);
+            }
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 1px solid #000;
+            margin: 0 auto;
+            width: 300px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        #box1>div {
+            text-align: center;
+            line-height: 98px;
+            float: left;
+            width: 98px;
+            height: 98px;
+            /* border: 1px solid #000; */
+        }
+
+        #box2 {
+            border: 1px solid #000;
+            margin: 0 auto;
+            width: 300px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        #box2>div {
+            float: left;
+            width: 98px;
+            height: 98px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 98px;
+        }
+
+        .active {
+            background: yellow;
+        }
+
+        #box3 {
+            border: 1px solid #000;
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var ass = [{
+                    name: "大卫1",
+                    sex: "男",
+                    age: "20",
+                    ah: "篮球",
+                    js: "1"
+                },
+                {
+                    name: "大卫2",
+                    sex: "女",
+                    age: "20",
+                    ah: "篮球",
+                    js: "2"
+                },
+                {
+                    name: "大卫3",
+                    sex: "人妖",
+                    age: "20",
+                    ah: "篮球",
+                    js: "3"
+                }
+            ]
+            var box1 = document.getElementById("box1");
+            var div1 = box1.getElementsByTagName("div");
+            var box2 = document.getElementById("box2");
+            var div2 = box2.getElementsByTagName("div");
+            var box3 = document.getElementById("box3");
+            var div3 = box3.getElementsByTagName("div");
+            for (var i = 0; i < div2.length; i++) {
+                div2[i].index = i;
+                div2[i].onclick = function () {
+                    box3.innerHTML = "";
+                    //获取点击次数
+                    // div2[this.index].clickcount = Number(div2[this.index].clickcount) + 1;
+                    // alert(div2[this.index].clickcount)
+                    for (var i = 0; i < div2.length; i++) {
+                        box3.innerHTML =
+                            "<p>" + ass[this.index].name +
+                            "</p><p>" + ass[this.index].sex +
+                            "</p><p>" + ass[this.index].age +
+                            "</p><p>" + ass[this.index].ah +
+                            "</p><p>" + ass[this.index].js + "</p>"
+                        //选中时的状态
+                        div2[i].className = "";
+                        this.className = "active";
+                    }
+                    document.getElementById("box1").innerHTML += '<div>'+ ass[this.index].sex +'</div>';
+                    // document.getElementById("box1").innerHTML = (ass[this.index].sex);
+                }
+                div2[i].innerHTML = (ass[i].sex);
+                /* div1[this.index].innerHTML = ""; */
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">
+        
+
+    </div>
+    <div id="box2">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="box3">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

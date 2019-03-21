@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机抽奖</title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+			float: left;
+			height: 100px;
+			width: 100px;	
+			text-align: center;
+			line-height: 98px;
+			border: 1px solid #000000;
+			box-sizing: border-box;	
+		}
+		ul{
+			width: 300px;
+			overflow: hidden;
+		}
+	</style>
+	<body>
+		<input type="button" id="cj" value="抽奖" />
+		<ul id="ul">
+			
+		</ul>	
+		<input type="text" id="in" value="" />
+	</body>
+	<script type="text/javascript" src="./jquery-1.12.3.js" ></script>
+	<script type="text/javascript">
+		var jx=[
+		"一等奖","二等奖","三等奖",
+		"四等奖","五等奖","六等奖",
+		"七等奖","八等奖","九等奖",
+		];
+		$.each(jx,function(item,index){
+			var ul=$("#ul");
+			var li=$("<li></li>").append(index);
+			ul.append(li);
+		});
+		var sj=2;
+		var xx;
+		var x;
+		$("#cj").click(function(){		
+			if (sj%2==0) {
+				xx =setInterval("sjs()",200);
+			} else{
+				clearInterval(xx);
+			}
+			sj++;
+			$("#in").val(jx[x]);
+		});		
+		function sjs(){		
+			$("li").css("background","#ffffff");
+			x=Math.round(Math.random()*jx.length);
+			$("li").eq(x).css("background","red");	
+		}
+		
+	</script>
+</html>
