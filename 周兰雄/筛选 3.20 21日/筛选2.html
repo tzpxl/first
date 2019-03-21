@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #yixuan {
+            display: none;
+
+            height: 30px;
+
+
+        }
+
+        #yixuan span {
+            background: #FFF8DC;
+            display: inline-block;
+            width: 60px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+
+
+        }
+
+        #yixuan .guanbi {
+
+            width: 98px;
+            border-radius: 0px;
+            border: #000000 solid 1px;
+
+        }
+
+        .wrap {
+            margin: 0 auto;
+            width: 600px;
+
+        }
+
+        .xingbie {
+            height: 50px;
+            background: #87CEFA;
+
+
+        }
+
+        .xingbie div {
+            display: block;
+            width: 98px;
+            height: 48px;
+            float: left;
+            border: 1px solid #87CEFA;
+            text-align: center;
+            line-height: 48px;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        .box-son {
+            background: #F5F5F5;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .box-son span {
+            padding-right: 10px;
+            display: inline-block;
+            width: 60px;
+        }
+
+        p {
+
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="yixuan"></div>
+        <div class="xingbie">
+            <div>性别：</div>
+            <div class="fudon">男</div>
+            <div class="fudon">女</div>
+            <div class="fudon">人妖</div>
+        </div>
+        <div id="box">
+
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var parr = [{
+                    name: "1",
+                    sex: "男",
+                    age: 20,
+                    aihao: "打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "2",
+                    sex: "女",
+                    age: 20,
+                    aihao: "游泳，篮球打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "3",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，动画片打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "4",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，blbl 打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "5",
+                    sex: "女",
+                    age: 20,
+                    aihao: "游泳，英雄联盟打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "6",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，王者荣耀打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "7",
+                    sex: "男",
+                    age: 20,
+                    aihao: "游泳 阴阳师，打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "8",
+                    sex: "男",
+                    age: 20,
+                    aihao: "游泳，刺激战场打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                }
+            ];
+            var biaoqian = document.getElementsByClassName("fudon"); //性别的选项组   
+            for (var i = 0; i < biaoqian.length; i++) { //遍历 给性别按钮加点击事件
+                biaoqian[i].num = 0; //判断是否为第二次点击
+                biaoqian[i].onclick = function () {
+                    if (this.num == 0) { //num=0  是第一次  //num!= 0 是 第二次
+                        //将点击的性别 添加到 已选 的div 里  
+                        document.getElementById("yixuan").innerHTML = document.getElementById("yixuan").innerHTML +
+                            "<span>" + this.innerHTML + "</span>";
+                        //显示 已选 div
+                        document.getElementById("yixuan").style.display = "block";
+                        //改变性别颜色
+                        this.style.background = "#f45a8d";
+                        xunhuan(); //执行循环
+                        //点击后num +1;
+                        this.num++;
+
+                    } else {
+                        var a = document.getElementById("yixuan").getElementsByTagName("span"); //获得已经选中的性别
+                        for (var i = 0; i < a.length; i++) { //如果点击已经选的 性别，就将 和他相同的性别按钮清除
+                            if (a[i].innerHTML == this.innerHTML) {
+                                this.style.background = "none"; //去颜色
+                                this.num = 0; //清索引
+                                document.getElementById("yixuan").removeChild(a[i]); //删除选中的
+                            }
+                        }
+                        if (a.length == 0) { //判断如果没有选择的性别，就隐藏  选中 性别  的盒子
+                            document.getElementById("yixuan").style.display = "none";
+                        }
+                        xunhuan(); //执行循环
+                    }
+                }
+            }
+
+            function xunhuan() {
+                document.getElementById("box").innerHTML = ""; //清空盒子
+
+                var a = document.getElementById("yixuan").getElementsByTagName("span"); //获得已经选中的性别
+                // console.log(a);
+                for (var j = 0; j < a.length; j++) { //  遍历以选的性别  给他们加点击事件
+                    a[j].index = j; //  索引
+                    a[j].onclick = function () {
+
+
+                        for (var i = 0; i < biaoqian.length; i++) { //如果点击已经选的 性别，就将 和他相同的性别按钮清除
+                            if (biaoqian[i].innerHTML == this.innerHTML) {
+                                biaoqian[i].style.background = "none"; //去颜色
+                                biaoqian[i].num = 0; //清索引
+                            }
+                        }
+                        document.getElementById("yixuan").removeChild(this); //删除自己
+                        if (a.length == 0) { //判断如果没有选择的性别，就隐藏  选中 性别  的盒子
+                            document.getElementById("yixuan").style.display = "none";
+                        }
+                        xunhuan(); //调用函数
+                    }
+                    //将选中的性别  和json 中的性别做对比，如果相同 就遍历出来
+                    for (var i = 0; i < parr.length; i++) { //所有先循环 选中了 多少个性别  
+                        if (a[j].innerHTML == parr[i].sex) { //再循环性别  和json 里的sex 值是不是一样 
+                            document.getElementById("box").innerHTML += "<div class='box-son'>" +
+                                "<p><span>名字:</span>" + parr[i].name + "</p>" +
+                                "<p><span>性别:</span>" + parr[i].sex + "</p>" +
+                                "<p><span>年龄:</span>" + parr[i].age + "</p>" +
+                                "<p><span>爱好:</span>" + parr[i].aihao + "</p>" +
+                                "<p><span>介绍:</span>" + parr[i].jieshao + "</p>" + "</div>";
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

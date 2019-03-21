@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .warp{
+        margin: 0 auto;
+        width: 600px;
+        
+    }
+    .actives-span span {
+        display: none;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background: #EEC591;
+    }
+
+    .chu {
+        display: inline-block !important;
+    }
+
+    .xuanzhong{
+        background: orange !important;
+    }
+
+    .btn span {
+        display: inline-block;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background: #EEE8AA;
+    }
+
+    .box .box-son {
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #F5F5DC;
+    }
+</style>
+
+<body>
+    <div class="warp">
+
+    
+    <div class="actives-span">
+        <span>男</span>
+        <span>女</span>
+        <span>人妖</span>
+    </div>
+    <div class="btn">
+        <span>男</span>
+        <span>女</span>
+        <span>人妖</span>
+    </div>
+    <div class="box">
+
+    </div>
+</div>
+    <script>
+        window.onload = function () {
+            var pArr = [{
+                    name: "Autumn",
+                    age: 18,
+                    sex: "男",
+                    jianjie: "犯得上犯得上发生发射点发射点犯得上"
+                },
+                {
+                    name: "小可",
+                    age: 18,
+                    sex: "女",
+                    jianjie: "大美女 哈哈哈哈"
+                },
+                {
+                    name: "杰瑞",
+                    age: 18,
+                    sex: "人妖",
+                    jianjie: "萨瓦迪卡 乌西卡玛西狄俄"
+                }
+            ];
+            //创建一个储存 激活性别 的数组
+            var arrxunazhong = [];
+            var actives=document.getElementsByClassName("actives-span")[0].getElementsByTagName("span");
+            var abtn=document.getElementsByClassName("btn")[0].getElementsByTagName("span");
+             hanshu(["男","女","人妖"]);
+                dianji(actives);
+                dianji(abtn);
+               // console.log(actives);
+            function dianji(a){
+            for(var i=0;i<a.length;i++){
+                a[i].onclick=function(){
+                 var t=   arrxunazhong.indexOf(this.innerHTML)
+                    if(t!==-1){
+                        arrxunazhong.splice(t,1);
+                    }else{
+                        arrxunazhong.push(this.innerHTML);
+                    }
+                    hanshu(arrxunazhong);
+                }
+            }
+            }
+
+
+            //封装一个 根据激活性别数组遍历显示信息  显示激活标签的的函数
+            function hanshu(shuzu) {
+                //将激活的性别的 json 遍历到大盒子 开始
+                var html="";
+                shuzu.forEach(function (imet, index){
+                    //console.log(imet);
+                    pArr.forEach(function (imet1, index1) {
+                       
+                        if (imet==imet1.sex) {
+                          html+='<div class="box-son">'+
+                          '<p>'+imet1.name+'</p>'+
+                          '<p>'+imet1.sex+'</p>'+
+                          '<p>'+imet1.age+'</p>'+
+                          '<p>'+imet1.jianjie+'</p>'+
+                          '</div>' ; 
+                        }
+                    });
+                });
+                document.getElementsByClassName("box")[0].innerHTML=html;
+                //将激活的性别的 json 遍历到大盒子 结束
+                //将激活的性别  的已选标签 显示出来 开始
+                 gaibian(actives,"chu");
+                //将激活的性别  的已选标签 显示出来 结束
+                //将激活的性别  的按钮 变颜色 开始
+               
+                gaibian(abtn,"xuanzhong");
+                 //将激活的性别  的按钮 变颜色 结束
+                
+                 //封装一个对比成功  添加样式的方法
+                function gaibian(anliu,yangshi){
+                     var abtns= wzhuanzhen(anliu);
+               
+                abtns.forEach(function(imet,index){
+                    if(shuzu.indexOf(imet.innerHTML)!==-1){
+                       
+                        imet.classList.add(yangshi); 
+                    }else{
+                        imet.classList.remove(yangshi);
+                    }
+                });
+                }
+            }
+            //类数组转 数组 的函数
+            function wzhuanzhen(shuzu){ 
+               return Array.prototype.slice.call(shuzu,0);
+             }
+        }
+    </script>
+</body>
+
+</html>

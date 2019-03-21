@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #yixuan {
+            display: none;
+            overflow: hidden;
+        }
+
+        #yixuan span {
+            background: #FFF8DC;
+            float: left;
+            width: 98px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+
+
+        }
+
+        #yixuan #guanbi {
+            width: 30px;
+
+            border-radius: 0px;
+            border: #000000 solid 1px;
+
+        }
+
+        .wrap {
+            margin: 0 auto;
+            width: 600px;
+
+        }
+
+        .xingbie {
+            height: 50px;
+            background: #87CEFA;
+
+
+        }
+
+        .xingbie div {
+            display: block;
+            width: 98px;
+            height: 48px;
+            float: left;
+            border: 1px solid #87CEFA;
+            text-align: center;
+            line-height: 48px;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        .box-son {
+            background: #FFF8DC;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .box-son span {
+            padding-right: 10px;
+            display: inline-block;
+            width: 60px;
+        }
+
+        p {
+
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="yixuan"></div>
+        <div class="xingbie">
+            <div>性别：</div>
+            <div class="fudon">男</div>
+            <div class="fudon">女</div>
+            <div class="fudon">人妖</div>
+        </div>
+        <div id="box">
+
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var parr = [{
+                    name: "1",
+                    sex: "男",
+                    age: 20,
+                    aihao: "打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "2",
+                    sex: "女",
+                    age: 20,
+                    aihao: "游泳，篮球打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "3",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，动画片打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "4",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，blbl 打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "5",
+                    sex: "女",
+                    age: 20,
+                    aihao: "游泳，英雄联盟打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "6",
+                    sex: "人妖",
+                    age: 20,
+                    aihao: "游泳，王者荣耀打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "7",
+                    sex: "男",
+                    age: 20,
+                    aihao: "游泳 阴阳师，打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                },
+                {
+                    name: "8",
+                    sex: "男",
+                    age: 20,
+                    aihao: "游泳，刺激战场打游戏",
+                    jieshao: "asdasdasdasdasdasdqweqwfasasdasdawdqweqweqrfeqrqerqweqwrqwsddasdsdsa"
+                }
+            ];
+            //按钮
+            var biaoqian = document.getElementsByClassName("fudon");
+            //已选的 数组
+            var arrxuanzhe = [];
+
+            for (var i = 0; i < biaoqian.length; i++) {
+                biaoqian[i].onclick=function(){
+                    var t = this.innerHTML;
+                    var b = arrxuanzhe.indexOf(t);
+                    if (b == -1) {
+                        arrxuanzhe.push(t);
+                        this.style.background = "#f45a8d";
+                    } else {
+                        arrxuanzhe.splice(b, 1);
+                        this.style.background = "none";
+                    }
+                    xunhuan(arrxuanzhe);
+                }
+            }
+
+
+            function xunhuan(arr) {
+                var html = "";
+                document.getElementById("yixuan").innerHTML = "";
+                arr.forEach(function (item, index) {
+                    parr.forEach(function (item1, index1) {
+                        // console.log(item);
+                        // console.log(item1.sex);
+                        if (item == item1.sex) {
+                            html += "<div class='box-son'>" +
+                                "<p><span>名字:</span>" + item1.name + "</p>" +
+                                "<p><span>性别:</span>" + item1.sex + "</p>" +
+                                "<p><span>年龄:</span>" + item1.age + "</p>" +
+                                "<p><span>爱好:</span>" + item1.aihao + "</p>" +
+                                "<p><span>介绍:</span>" + item1.jieshao + "</p>" + "</div>"
+                        }
+
+                    })
+
+                    document.getElementById("yixuan").innerHTML += "<span>" + item + "</span>";
+                });
+                document.getElementById("yixuan").style.display = "block";
+                shijian();
+                document.getElementById("box").innerHTML = html;
+            }
+
+            function shijian(){
+                var spans = document.getElementById("yixuan").getElementsByTagName("span");
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].onclick = function () {
+                        for (var i = 0; i < biaoqian.length; i++) {
+                            if (this.innerHTML == biaoqian[i].innerHTML) {
+                                
+                                    biaoqian[i].onclick();
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

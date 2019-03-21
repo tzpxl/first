@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 5000px;background: red"></div>
+</body>
+<script>
+    //第一遍
+    //节流throttle  
+    window.onscroll=debounce(function(){
+            console.log(1);
+    },1000);
+    function throttle(fun,time){
+        var shijian=0;
+        return function(){
+            var self=this;
+            var args=arguments;
+            var dangqinashijian=+ new Date();
+            if(dangqinashijian-shijian>=time){
+                fun.apply(self,args);
+                shijian=dangqinashijian;
+            }
+        }
+    }
+    function debounce(fun,time){
+        var dsq=null;
+        return function(){
+            var self=this;
+            var args=arguments;
+            clearTimeout(dsq);
+              dsq= setTimeout(function(){
+                fun.apply(self,args);
+            },time);
+        }
+    }
+    //第二遍
+    // function throttle(fun,time){
+    //     var beforeTime=0;
+    //     return function (){
+    //         var self=this;
+    //         var args=arguments;
+    //         var currTime =+ new Date();
+    //         if(currTime-beforeTime>=time){
+    //             fun.apply(self,args);
+    //             beforeTime =currTime;
+    //         }
+    //       }
+    // }
+    // //防抖debounce
+    // function debounce(fun,time){
+    //     var jsq=null;
+    //     return function(){
+    //         var self=this;
+    //     var args=arguments;
+    //         clearTimeout(jsq);
+    //         jsq= setTimeout(function(){
+    //         fun.apply(self,args);
+    //         },time);
+    //     }
+    // }
+    //
+    //第三遍
+//     //节流 throttle
+// function throttle(fun,time){
+    
+//     var times=0;
+    
+//     return function(){
+//         var self=this;
+//         var args=arguments;
+//         var zhetime=+ new Date();
+//         if(zhetime-times>=time){
+//             fun.apply(self,args);
+//             times=zhetime;
+//         }
+//     }
+// }
+
+// //防抖 debounce
+//  function debounce(fun,time){
+//     var dsq=null;
+//     return function(){
+//         var self=this;
+//         var args=arguments;
+//         clearTimeout(dsq);
+//         dsq =setTimeout(function(){
+//             fun.apply(self,args);
+//         },time);
+
+//     }
+//  }
+//第四遍
+// //节流 throttle
+// function throttle(fun,time){
+    
+//     var times=0;
+    
+//     return function(){
+//         var self=this;
+//         var args=arguments;
+//         var zhetime=+ new Date();
+//         if(zhetime-times>=time){
+//             fun.apply(self,args);
+//             times=zhetime;
+//         }
+//     }
+// }
+
+// //防抖 debounce
+//  function debounce(fun,time){
+//     var dsq=null;
+//     return function(){
+//         var self=this;
+//         var args=arguments;
+//         clearTimeout(dsq);
+//         dsq =setTimeout(function(){
+//             fun.apply(self,args);
+//         },time);
+
+//     }
+//  }
+
+//第五遍
+//节流
+// function throttler(fun ,time){
+//     var shijian=0;  
+//          return function(){
+//              var self=this;
+//              var args=arguments;
+//              var dangqianshijian= + new Date();
+//              if(dangqianshijian-shijian>=time){
+//                  fun.apply(self,args);
+//                 shijian=dangqianshijian;
+//              }
+//          }
+//  }
+//防抖
+//  function debounce(fun,time){
+//     var jsq=null;
+//     return function(){
+//         var self=this;
+//         var args=arguments;
+//         clearTimeout(jsq);
+//         jsq=setTimeout(function(){
+//             fun.apply(self,args);
+//         },time)
+//     }
+//  }
+//第六遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第七遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第八遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第九遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第10遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第11遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第12遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第13遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第14遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第15遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第16遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第17遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第18遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第19遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+//第20遍
+//节流
+//   function throttle(fun,time){
+//         var shijian=0;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             var dangqinashijian=+ new Date();
+//             if(dangqinashijian-shijian>=time){
+//                 fun.apply(self,args);
+//                 shijian=dangqinashijian;
+//             }
+//         }
+//     }
+//     function debounce(fun,time){
+//         var dsq=null;
+//         return function(){
+//             var self=this;
+//             var args=arguments;
+//             clearTimeout(dsq);
+//               dsq= setTimeout(function(){
+//                 fun.apply(self,args);
+//             },time);
+//         }
+//     }
+</script>
+</html>

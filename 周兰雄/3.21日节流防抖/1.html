@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height:2000px; background: red;"></div>
+</body>
+<script>
+window.onscroll=debounce(function(){
+ console.log(1);
+},1000);
+ function throttler(fun ,time){
+         var shijian=0;  
+         return function(){
+             var self=this;
+             var args=arguments;
+             var dangqianshijian= + new Date();
+             if(dangqianshijian-shijian>=time){
+                 fun.apply(self,args);
+                shijian=dangqianshijian;
+             }
+         }
+ }
+ function debounce(fun,time){
+    var jsq=null;
+    return function(){
+        var self=this;
+        var args=arguments;
+        clearTimeout(jsq);
+        jsq=setTimeout(function(){
+            fun.apply(self,args);
+        },time)
+    }
+ }
+</script>
+</html>
