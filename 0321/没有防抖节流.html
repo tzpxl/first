@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>没有防抖</title>
+    <style type="text/css"></style>
+    <!-- <script type="text/javascript">
+       window.onkeyup=debounce(function(e){
+             console.log(e.target.value);
+       },500);
+
+       function debounce(fn,data){
+
+        return function(ages){
+           let that=this;
+           let _agse=ages;
+
+           clearTimeout(fn.id);
+           fn.id = setTimeout(function(){
+                 fn.call(that,_agse);
+           },data);
+        }
+       }
+
+      //  let normal=document.querySelector("#normal");
+    
+    </script> -->
+    <!-- <script>
+    window.onkeyup=debounce(function(){
+
+    },500);
+    function debounce(fn,data){
+
+      return function(ages){
+            let that=this;
+            let ages=ages;
+
+            clearTimeout(fn.id);
+            fn.id = setTimeout(function(){
+                 fn.call(that,ages);
+            },data)
+      }
+    }
+
+    </script> -->
+    <!-- <script>
+    window.onkeyup=debounce(function(){
+
+    },500);
+    function debounce(fn,data){
+
+      return function(ages){
+        let that=this;
+        let ages=ages;
+
+        clearTimeout(fn.id);
+        fn.id = setTimeout(function(){
+             fn.call(that,ages);
+        },data)
+      }
+    }
+    
+    </script> -->
+    <!-- <script>
+    window.onkeyup=debounce(function(){
+
+    },500);
+
+    function debounce(fn,data){
+      
+      return function(ages){
+        let that = this;
+        let ages = ages;
+
+        clearTimeout(fn.id);
+        fn.id = setTimeout(function(){
+               fn.call(that,ages);
+        },data)
+      }
+    }
+    
+    </script> -->
+    <!-- <script>
+    window.onkeyup=debounce(function(){
+
+    },500);
+
+    function debounce(fn,data){
+     
+          return function(ages){
+            let that = this;
+            let ages = ages;
+
+            clearTimeout(fn.id);
+            fn.id  =  setTimeout(function(){
+                 fn.call(that,ages);
+            },data)
+          }
+
+    }
+    
+    </script> -->
+    <!-- <script>
+     window.onkeyup = debounce(function(){
+
+     },500);
+     function debounce(fn,data){
+
+      return function(ages){
+        let that = this;
+        let ages = ages;
+
+        clearTimeout(fn.id);
+        fn.id = setTimeout(function(){
+          fn.call(that,ages);
+        },data);
+      }
+     }
+
+    </script> -->
+  </head>
+
+  <body>
+    <div>
+      1.没有防抖的输入：
+      <input type="text" name="normal" id="normal" />
+      <input type="text">
+    </div>
+  </body>
+</html>

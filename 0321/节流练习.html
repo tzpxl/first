@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流练习</title>
+</head>
+<body>
+     <script>
+        // window.onkeyup=throttle(function(e){
+        //       console.log(e);
+        // },2000);
+        //     function throttle(fn,data){
+        //          var add=0;
+
+        //          return function(){
+        //              let that=this;
+        //              let ages=arguments;
+        //              let currTime = +new Date();
+        //              if(currTime - add >= data){
+        //                  fn.call(that,ages);
+        //                  add = currTime;
+        //              }
+        //          }
+        //     }
+    //    let normal=document.querySelector("#normal");
+        </script>
+         <!-- <script>
+         window.onkeyup=throttle(function(e){
+            console.log(e);
+         },500);
+         function throttle(fn,data){
+              var add=0; //第一次定义时间为0
+              
+              return function(){
+                  let that = this;
+                  let ages=arguments;
+                  let curr = +new Date();
+                  if(curr - add >= data){
+                       fn.call(that,ages);
+                       add=curr;
+                  }
+              }
+         }
+         
+         </script> -->
+         <!-- <script>
+         window.onkeyup=throttle(function(e){
+                 console.log(e);
+         },500);
+             function throttle(fn,data){
+                 var add=0;
+                 return function(){
+                     let that = this;
+                     let ages = arguments;
+                     let curr = +new Date();
+                     if(curr - add >= data){
+                         fn.call(that,ages);
+                         add=curr;
+                     }
+                 }
+             }
+         </script> -->
+         <!-- <script>
+          window.onkeyup=throttle(function(e){
+                    console.log(e);
+          },500);
+
+            function throttle(fn,data){
+                 var add= 0;
+                 return function(){
+                     let that=this;
+                     let ages = arguments;
+                     let curr = +new Date();
+                     if(curr - add >= data){
+                          fn.call(that,ages);
+                          add=curr;
+                     }
+                 }
+            }
+         </script> -->
+         <!-- <script>
+         window.onkeyup=throttle(function(){
+            
+         },500);
+
+          function throttle(){
+              var add=0;
+              return function(fn,data){
+                  let that=this;
+                  let ages=arguments;
+                  let curr = +new Data();
+                  if(curr - add>=data){
+                      fn.call(that,ages);
+                      add=curr;
+                  }
+              }
+          }
+         </script> -->
+         <!-- <script>
+         window.onkeyup=throttle(function(){
+
+         },500);
+
+         function throttle(fn,data){
+              var add=0;
+              return function(fn,data){
+                   let that=this;
+                   let ages=arguments;
+                   let curr = +new Data();
+                   if(curr - add >= data){
+                       fn.call(that,ages);
+                       add=curr;
+                   }
+              }
+         }
+         
+         </script> -->
+        <div>
+                3.加入节流后的输入：
+                <input type="text" name="throttle" id="throttle">
+            </div>
+</body>
+</html>
