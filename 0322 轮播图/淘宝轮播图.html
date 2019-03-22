@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>淘宝轮播图</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .add{
+        position: relative;
+        margin: 50px auto;
+        /* margin-left: -730px; */
+        width: 1460px;
+        height: 400px;
+    }
+    .btn {
+      position: relative;
+      position: absolute;
+      right: 0;
+      /* overflow: hidden; */
+      /* margin: 50px auto; */
+      width: 730px;
+      height: 400px;
+      /* background: #0ff; */
+    }
+    .btn > ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 340px;
+    }
+    .btn > ul > li {
+      position: absolute;
+      list-style: none;
+      transition: 0.3s;
+    }
+    .btn-bottom {
+      width: 730px;
+      height: 60px;
+      text-align: center;
+    }
+    .btn-bottom > span {
+      display: inline-block;
+      width: 70px;
+      height: 3px;
+      background: #ccc;
+    }
+    .list1 {
+      transform: translateX(-730);
+      /* transform-origin: 0 100%; */
+      /* z-index: 1; */
+    }
+    .list2 {
+      transform: translateX(0px);
+      /* z-index: 2; */
+    }
+    .list3 {
+      transform: translateX(730px);
+      /* transform-origin: 100% 100%; */
+      /* z-index: 1; */
+    }
+    .list4 {
+      transform: translateX(1460px);
+      /* transform-origin: 100% 100%; */
+    }
+    .list5 {
+      transform: translateX(2190px);
+      /* transform-origin: 100% 100%; */
+    }
+    .list6 {
+      transform: translateX(2920px);
+      /* transform-origin: 100% 100%; */
+    }
+    #btn-left {
+      position: absolute;
+      width: 50px;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.1);
+      top: 40%;
+      left: 0;
+      font-size: 50px;
+      z-index: 8;
+      color: #ccc;
+      text-align: center;
+      line-height: 80px;
+    }
+    #btn-left:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    #btn-right {
+      position: absolute;
+      top: 40%;
+      right: 0;
+      width: 50px;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 50px;
+      z-index: 8;
+      color: #ccc;
+      text-align: center;
+      line-height: 80px;
+    }
+    #btn-right:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+
+  <script>
+    window.onload = function() {
+      //初始化索引
+      var index = 0;
+      //获得span
+      var sPan = document.querySelectorAll("span");
+      //创建数组 把类名放到数组中
+      var ages = ["list1", "list2", "list3", "list4", "list5", "list6"];
+      var ali = document.querySelectorAll("li");
+
+      //遍历span
+      function setLine() {
+        for (var i = 0, len = sPan.length; i < len; i++) {
+          sPan[i].style.background = "#ccc";
+        }
+        sPan[index].style.background = "#f0f";
+      }
+      setLine();
+      //向前轮播
+      function nextPic() {
+        ages.unshift(ages[5]); // 吧数组最后一个名字复制并插入到第一位置
+        ages.pop(); //删除最后一个
+        for (var i = 0, len = ali.length; i < len; i++) {
+          ali[i].setAttribute("class", ages[i]);
+        }
+        index = index + 1;
+        if (index > 5) {
+          index = 0;
+        }
+        setLine();
+      }
+      // nextPic();
+
+      //向后轮播
+      function prePic() {
+        ages.push(ages[0]); //把第一个放到最后一个位置
+        ages.shift(); //删除第一个
+        for (var i = 0, len = ali.length; i < len; i++) {
+          ali[i].setAttribute("class", ages[i]);
+        }
+        index = index - 1;
+        if (index < 0) {
+          index = 5;
+        }
+        setLine();
+      }
+      // prePic();
+
+      var topl = document.getElementById("btn-left");
+      var topr = document.getElementById("btn-right");
+      topl.onclick = function() {
+        prePic();
+      };
+
+      topr.onclick = function() {
+        nextPic();
+      };
+      setInterval(nextPic, 3000);
+    };
+  </script>
+  <body>
+    <div class="add">
+      <div class="btn">
+        <div id="btn-left"><</div>
+        <div id="btn-right">></div>
+        <ul>
+          <li class="list1"><img src="../images/01.jpg" alt="" /></li>
+          <li class="list2"><img src="../images/02.jpg" alt="" /></li>
+          <li class="list3"><img src="../images/03.jpg" alt="" /></li>
+          <li class="list4"><img src="../images/04.jpg" alt="" /></li>
+          <li class="list5"><img src="../images/05.jpg" alt="" /></li>
+          <li class="list6"><img src="../images/06.jpg" alt="" /></li>
+        </ul>
+        <div class="btn-bottom">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
