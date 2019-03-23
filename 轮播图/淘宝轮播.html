@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝轮播图</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        #lunbo_box {
+            width: 520px;
+            height: 280px;
+            border: 3px solid #333;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #lunbo {
+            width: 3640px;
+            height: 280px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #lunbo img {
+            float: left;
+            width: 520px;
+            height: 280px;
+        }
+
+        #btn {
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            z-index: 2;
+            bottom: 20px;
+            left: 220px;
+        }
+
+        #btn span {
+            cursor: pointer;
+            float: left;
+            border: 1px solid #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            margin-right: 5px;
+        }
+
+        #btn .on {
+            background: orangered;
+        }
+
+        .arrow {
+            cursor: pointer;
+            display: none;
+            line-height: 39px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            z-index: 2;
+            top: 120px;
+            background-color: RGBA(0, 0, 0, .3);
+            color: #fff;
+        }
+
+        .arrow:hover {
+            background-color: RGBA(0, 0, 0, .7);
+        }
+
+        #lunbo_box:hover .arrow {
+            display: block;
+        }
+
+        #prev {
+            left: 20px;
+        }
+
+        #prev img {
+            width: 42px;
+            height: 42px;
+        }
+
+        #next {
+            right: 20px;
+        }
+
+        #next img {
+            width: 42px;
+            height: 42px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="lunbo_box">
+        <div id="lunbo" style="left: -520px;">
+            <img src="./图轮播效果/img/tb5.jpg" alt="1" />
+            <img src="./图轮播效果/img/tb1.jpg" alt="1" />
+            <img src="./图轮播效果/img/tb2.jpg" alt="2" />
+            <img src="./图轮播效果/img/tb3.jpg" alt="3" />
+            <img src="./图轮播效果/img/tb4.jpg" alt="4" />
+            <img src="./图轮播效果/img/tb5.jpg" alt="5" />
+            <img src="./图轮播效果/img/tb1.jpg" alt="5" />
+        </div>
+        <div id="btn">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+            <span index="5"></span>
+        </div>
+        <a href="javascript:;" id="prev" class="arrow"><img src="./图轮播效果/img/prev.png"></a>
+        <a href="javascript:;" id="next" class="arrow"><img src="./图轮播效果/img/next.png" alt=""></a>
+    </div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var lunbo_box = document.getElementById('lunbo_box');
+        var lunbo = document.getElementById('lunbo');
+        var btn = document.getElementById('btn').getElementsByTagName('span');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var index = 1;
+        var animated = false;
+        var timer; //定义一个变量储存定时器
+
+        //创建一个改变圆点颜色的函数
+        function showSpan() {
+            //清除其他样式 
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].className = "";
+            }
+            btn[index - 1].className = "on";
+        }
+
+        //创建一个图片移动的带参函数
+        function tpyd(offset) {
+            animated = true;
+            var newLeft = parseInt(lunbo.style.left) + offset;
+            var time = 500; //位移总时间
+            var interval = 10; //位移间隔时间毫秒
+            //speed表示每次要移动多长距离
+            var speed = offset / (time / interval); //每次位移量
+
+
+            //动画函数,通过递归函数使它不断的调用自身进而形成动画
+            function go() {
+                if ((speed < 0 && parseInt(lunbo.style.left) > newLeft) || (speed > 0 && parseInt(lunbo.style
+                        .left) < newLeft)) {
+                    lunbo.style.left = parseInt(lunbo.style.left) + speed + "px";
+                    setTimeout(go, interval);
+                } else {
+                    animated = false;
+                    lunbo.style.left = newLeft + "px";
+                    if (newLeft > -520) {
+                        lunbo.style.left = -2600 + "px";
+                    }
+                    if (newLeft < -2600) {
+                        lunbo.style.left = -520 + "px";
+                    }
+                }
+            }
+            go();
+        }
+
+
+        //切换功能
+        function play() {
+            timer = setInterval(function () {
+                next.onclick();
+            }, 2000);
+        }
+        //停止
+        function stop() {
+            clearInterval(timer);
+        }
+
+
+
+        //点击下一个进行图片切换
+        next.onclick = function () {
+            if (index == "5") {
+                index = 1;
+            } else {
+                index += 1;
+            }
+            showSpan();
+            if (!animated) {
+                tpyd(-520);
+            }
+        }
+
+        //点击上一个进行图片切换
+        prev.onclick = function () {
+            if (index == "1") {
+                index = 5;
+            } else {
+                index -= 1;
+            }
+            showSpan();
+            if (!animated) {
+                tpyd(520);
+            }
+        }
+        window.onclick = throttle(showSpan,1000);
+
+        //节流
+        function throttle(fn, time) {
+            var beforeTime = 0;
+            return function () { //暴露出去的函数
+                var self = this;
+                var args = arguments;
+                var currTime = +new Date(); //获取当前时间
+                if (currTime - beforeTime >= time) {
+                    //执行了一次
+                    fn.apply(self, args);
+                    beforeTime = currTime;
+                }
+            }
+        }
+        //通过循坏给圆点添加点击事件
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                if (this.className == "on") {
+                    return;
+                }
+                var myIndex = parseInt(this.getAttribute("index"));
+                var offset = -520 * (myIndex - index);
+                index = myIndex;
+                showSpan();
+                if (!animated) {
+                    tpyd(offset);
+                }
+            }
+        }
+        //添加鼠标移入事件
+        lunbo_box.onmouseover = stop;
+        lunbo_box.onmouseout = play;
+        play();
+
+    }
+</script>
+
+</html>
