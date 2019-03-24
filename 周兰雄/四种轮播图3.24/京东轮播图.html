@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .warp {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 520px;
+            height: 280px;
+
+        }
+
+        ul {
+           
+            height: 280px;
+            width: 520px;
+            
+        }
+
+        li { 
+            opacity: 0;
+            position: absolute;
+            list-style: none;
+            float: left;
+            left: 0;
+        }
+
+        span{
+            display: inline-block;
+            font-size: 20px;
+            z-index: 100;
+            height: 30px;
+            top: 130px;
+            color: #ffffff;
+            background-color: rgba(160,125,125,.7);
+            cursor: pointer;
+            z-index: 101;
+        }
+        #btn{
+            position: absolute;
+            bottom: 20px;
+            left: 200px;
+            z-index: 101;
+        }
+        #btn a{
+            display: inline-block;
+            border-radius: 50%;
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+            background: orange;
+        }
+        .xuan{
+            background: orangered !important;
+
+        }
+        .danru{
+            
+            animation-name: danru;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            z-index: 100;
+        }
+        .danchu{
+            animation-name: danchu;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            z-index: 99;
+
+        }
+        .xian{
+            opacity: 1;
+        }
+        #zuo {
+            position: absolute;
+            left: 0;
+           
+        }
+
+        #you {
+            position: absolute;
+            right: 0;
+        }
+        @keyframes danru{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+
+        }
+        @keyframes danchu{
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <span id="zuo">&lt;</span><span id="you">&gt;</span>
+        <div id="btn">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+        <ul> 
+            <li class="danru"><img src="https://img.alicdn.com/tfs/TB1JQ.jMCrqK1RjSZK9XXXyypXa-520-280.jpg" alt=""></li>
+            <li ><img src="https://aecpm.alicdn.com/simba/img/TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg" alt=""></li>
+            <li ><img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" alt=""></li>
+            <li ><img src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg" alt=""></li>
+            <li ><img src="https://img.alicdn.com/tfs/TB1yqJ7fTZmx1VjSZFGXXax2XXa-520-280.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src="./js/tools.js"></script>
+    <script>
+        window.onload = function (){
+            var lis = document.getElementsByTagName("li");
+            var warp=document.getElementsByClassName("warp")[0];
+            var index=0;    //图片索引
+            
+            var jsq=null; //定时器 
+            var btns=document.getElementById("btn").getElementsByTagName("a");
+            btns[0].className="xuan";
+            // a标签加点击事件
+            // for(let i=0;i<btns.length;i++){
+            //     btns[i].onclick=throttle(function(){
+            //         clearInterval(jsq);
+            //         index=i;
+            //         qiehuan();
+            //         jsq=setInterval(kaiqijishiqi,2000);
+            //     },1000);
+            // }
+
+
+            
+
+
+            jsq=setInterval(kaiqijishiqi,2000);
+            function  kaiqijishiqi(){
+                index++;
+                if(index>4){
+                    index=0;
+                }
+                qiehuan();
+            }
+            
+            function  qiehuan(){
+               abtnfun();
+               console.log(index);
+                if(index==0){
+                lis[4].className="danchu";
+                   lis[0].className="danru";
+                 }else{
+                    lis[index-1].className="danchu";
+                   lis[index].className="danru";
+               }
+            }
+
+
+            function abtnfun(){
+          for(var i=0;i<btns.length;i++){
+            btns[i].className=""; 
+          }
+          btns[index].className="xuan";
+        }
+
+        function throttle(fun, time) {
+                var shijian = 0;
+                return function () {
+                    var b = this;
+                    var c = arguments;
+                    var d = +new Date();
+                    if (d - shijian >= time) {
+                        fun.apply(b, c);
+                        shijian = d;
+                    }
+                }
+            }
+        }
+       
+    
+    </script>
+</body>
+
+</html>

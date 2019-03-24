@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>asdasd</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style:none;
+        }
+        .outer {
+            width: 520px;
+            height: 280px;
+            padding: 5px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .inner {
+            width: 520px;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+
+        }
+        ul {
+            width: 605%;
+            position: absolute;
+        }
+        li {
+            float: left;
+        }
+        ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        ol li {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            margin: 0 6px 0 5px;
+            text-align: center;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .current {
+            background-color: orange;
+            color: #fff;
+        }
+        .btn .left,.btn .right{
+            width: 30px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            background-color: rgba(160,125,125,.7);
+            text-align: center;
+            font: 400 18px/50px "microsoft yahei";
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+        .btn {
+            display:none;
+        }
+        .btn .left {
+            left: 5px;
+        }
+        .btn .right {
+            right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="outer" id="outer">
+    <div class="inner" id="inner">
+        <ul>
+                <li><img src="https://img.alicdn.com/tfs/TB1JQ.jMCrqK1RjSZK9XXXyypXa-520-280.jpg" alt=""></li>
+                <li><img src="https://aecpm.alicdn.com/simba/img/TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg" alt=""></li>
+                <li><img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" alt=""></li>
+                <li><img src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg" alt=""></li>
+                <li><img src="https://img.alicdn.com/tfs/TB1yqJ7fTZmx1VjSZFGXXax2XXa-520-280.jpg" alt=""></li>
+        </ul>
+    </div>
+    <ol>
+    </ol>
+    <div class="btn" id="btn">
+        <span class="left"> &gt;</span>
+        <span class="right"> &lt;</span>
+    </div>
+</div>
+
+<script>
+    //获取元素
+    var ul = document.getElementsByTagName("ul")[0];
+    var ol = document.getElementsByTagName("ol")[0];
+    var ulLiArr = ul.children;
+    console.log(ulLiArr)
+    //需求1： ol创建小方块li，并将ul中第一个图片复制一份添加到最后（为了实现无缝滚动衔接）
+    for(var i=0;i<ulLiArr.length;i++){
+        var li = document.createElement("li");
+        li.innerHTML = i+1;
+        //设置第一个li为选中样式
+        if(i==0){
+            li.className="current";
+        }else{
+            li.className="";
+        }
+        ol.appendChild(li);
+    }
+    //复制第一张图片放到最后
+    var firstLi = ul.children[0].cloneNode(true);
+    ul.appendChild(firstLi);
+    //console.log(firstLi);
+
+    //需求2：鼠标进入图片区域显示按钮,点击右键向右移动（方块，图片），左键向左移动
+    var outer = document.getElementById("outer");
+    var btn = document.getElementById("btn");
+    var left = document.getElementsByTagName("span")[0];
+    var right = document.getElementsByTagName("span")[1];
+    var imgWidth = inner.offsetWidth;
+    var ol = document.getElementsByTagName("ol")[0];
+    var olLiArr= ol.children;
+    //进入outer区域，暂停定时器显示按键。
+    outer.onmouseover = function(){
+        clearInterval(timer);
+        btn.style.display="block";
+    }
+    var square=0;//小方块索引值
+    var key =0; //图片索引值
+    var timer = null; //定时器
+
+    //离开outer区域，定时器启动和隐藏按钮。
+    outer.onmouseout = function(){
+        timer = setInterval(autoPlay,2000);
+        btn.style.display="none";
+    }
+    right.onclick = autoPlay;
+    left.onclick = function(){
+        //向左移动，小方块索引减一
+        square--;
+        //如果索引值为-1时，将小方块设置第5个
+        if(square===-1){
+            square=4;
+        }
+        //排他思想，设置当前样式
+        for(var i=0;i<olLiArr.length;i++){
+            olLiArr[i].className="";
+        }
+        olLiArr[square].className="current";
+        //图片索引值减一，如果索引值为-1时将当前位置设置为第6张并从第6张移动到第5张
+        key--;
+        if(key==-1){
+            ul.style.left =-imgWidth*5 +"px";
+            key = 4;
+        }
+        animate(ul,-key*imgWidth);
+    }
+
+    function autoPlay(){
+        square++;
+        if(square==5){
+            square=0;
+        }
+        for(var i=0;i<olLiArr.length;i++){
+            olLiArr[i].className="";
+        }
+        olLiArr[square].className="current";
+        key++;
+        if(key==6){
+            ul.style.left=0;
+            key=1
+        }
+        animate(ul,-key*imgWidth);
+    }
+    //需求4：点击小方块，图片跟随一移动
+    for(var i=0;i<olLiArr.length;i++){
+        olLiArr[i].index = i;
+        olLiArr[i].onclick = function(){
+            for(var j=0;j<olLiArr.length;j++){
+                olLiArr[j].className="";
+            }
+            this.className="current";
+            animate(ul,-this.index*imgWidth);
+            key = square = this.index;
+        }
+    }
+    //需求5：定时器
+    timer =setInterval(autoPlay,1000);
+    //当鼠标进入图片区别，定时器暂停;离开继续
+    function animate(ele,target){
+    clearInterval(ele.timer);
+    ele.timer = setInterval(function(){
+        var localLeft = ele.offsetLeft;
+        var step = localLeft<target?10:-10;
+        if(Math.abs(target-localLeft)<=Math.abs(step)){
+            clearInterval(ele.timer);
+            ele.style.left = target +"px";
+        }else{
+            ele.style.left = localLeft + step + "px";
+        }
+    },10);
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //轮播图
+    var uls=document.getElementsByTagName("ul")[0];
+    var lbt_btn=document.getElementsByClassName("lbt_btn")[0].getElementsByTagName("a");
+    var index = 0;
+    lbt_btn[index].className="xuanzhong";   
+     var  lis_width;
+    function llqgaibian(){
+      //console.log( getStyle(uls,"height"));
+         lis_width=  parseInt(getStyle(uls,"width"))/5;
+      //console.log(lis_width);
+         document.getElementsByClassName("navlbt")[0].style.height=getStyle(uls,"height");
+    }
+
+        llqgaibian();
+    window.onresize=function(){
+     clearInterval(lbtsetInterval);
+     llqgaibian();
+     index =0;
+     move(uls,"left",-(lis_width*index),15,function(){
+      abtnfun();
+      lbtfun();
+});
+    }
+    //a 标签添加点击事件
+    for(var i=0;i<lbt_btn.length;i++){
+          lbt_btn[i].num=i;
+          
+          lbt_btn[i].onclick=function(){
+            clearInterval(lbtsetInterval);
+            index = this.num;
+            
+            move(uls,"left",-(lis_width*this.num),15,function(){
+                  abtnfun();
+                  lbtfun();
+            });
+          }
+    }
+   
+    function getStyle(obj , name){
+        //window区别：
+        //没有加window，是一个变量，需要去作用域找，找不到报错
+        //加了window，是一个属性，找不到返回undefined
+        // window.
+        if(window.getComputedStyle){
+            //正常浏览器的方式,具有getComputedStyle()方法
+            return getComputedStyle(obj , null)[name];
+        }else{
+            //IE8的方式
+            return obj.currentStyle[name];
+        }
+    }
+
+    function abtnfun(){
+          for(var i=0;i<lbt_btn.length;i++){
+            lbt_btn[i].className=""; 
+          }
+          if(index==4){
+            lbt_btn[0].className="xuanzhong";
+          }else{
+            lbt_btn[index].className="xuanzhong";
+          }
+          
+    }
+    //设置轮播方法
+    var lbtsetInterval;
+    function lbtfun(){
+      lbtsetInterval=setInterval(function(){
+            console.log(index);
+            index++;
+            if(index>lbt_btn.length){
+                  index=0;
+                  uls.style.left = 0;
+            };
+            move(uls,"left",-lis_width*index,15,function(){
+              abtnfun();
+        }); 
+      },3500);
+    }
+    lbtfun();
+        </script>
+</body>
+</html>
