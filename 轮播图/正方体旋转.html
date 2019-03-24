@@ -1,12 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>正方体旋转</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ass {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin: 200px auto;
+            width: 150px;
+            height: 150px;
+            transform-style: preserve-3d;
+            perspective:10000px;
+            animation: ass 10s linear;
+        }
+
+        @keyframes ass {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            10% {
+                transform: rotateX(0deg) rotateY(-180deg);
+            }
+
+            20% {
+                transform: rotateX(-180deg) rotateY(180deg);
+            }
+
+            30% {
+                transform: rotateX(-360deg) rotateY(180deg);
+            }
+
+            40% {
+                transform: rotateX(-360deg) rotateY(360deg);
+            }
+
+            50% {
+                transform: rotateX(-180deg) rotateY(360deg);
+            }
+
+            60% {
+                transform: rotateX(90deg) rotateY(180deg);
+            }
+
+            70% {
+                transform: rotateX(0) rotateY(180deg);
+            }
+
+            80% {
+                transform: rotateX(90deg) rotateY(90deg);
+            }
+
+            90% {
+                transform: rotateX(90deg) rotateY(0);
+            }
+
+            100% {
+                transform: rotateX(0) rotateY(0);
+            }
+        }
+
+        .ass div {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        .ass div:nth-child(1) {
+            background: #e93eb6;
+            transform: translateZ(0px);
+        }
+
+        .ass div:nth-child(2) {
+            background: #e92a2a;
+            transform: translateZ(150px);
+        }
+
+        .ass div:nth-child(3) {
+            left: -150px;
+            transform-origin: right;
+            transform: rotateY(90deg);
+            background: #bb77dd;
+        }
+
+        .ass div:nth-child(4) {
+            left: 150px;
+            transform-origin: left;
+            transform: rotateY(-90deg);
+            background: #18afa3;
+        }
+
+        .ass div:nth-child(5) {
+            top: 150px;
+            transform-origin: top;
+            transform: rotateX(90deg);
+            background: #773ce6;
+        }
+
+        .ass div:nth-child(6) {
+            top: -150px;
+            transform-origin: bottom;
+            transform: rotateX(-90deg);
+            background: #ebc109;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="ass">
+        <div>上</div>
+        <div>下</div>
+        <div>左</div>
+        <div>右</div>
+        <div>前</div>
+        <div>后</div>
+    </div>
 </body>
+
 </html>
