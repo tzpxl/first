@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        height: 500px;
+    }
+    </style>
+</head>
+<body>
+    <div style="height:2000px;background: red;"></div>
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://i0.hdslb.com/bfs/sycp/creative_img/201903/3d2c748cf548d4eedaa3f9a028420a74.jpg" alt="">
+    <img data-src="https://i0.hdslb.com/bfs/sycp/creative_img/201903/3d2c748cf548d4eedaa3f9a028420a74.jpg" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+    <img data-src="https://img-blog.csdn.net/20180311141355152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnVyeV8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
+</body>
+    <script>
+    var imgs =document.querySelectorAll("[data-src]");
+   
+    function jieliu(fun,time){
+            var a=0;
+        return function(){
+            var b=this;
+            var c=arguments;
+            var d=+ new Date();
+            if(d-a>=time){
+                fun.apply(b,c);
+                a=d;
+            }
+        }
+    }
+    function getWindow(){
+                    if(typeof window.innerWidth !='undefined') {
+                        return{
+                            height : window.innerHeight
+                        }
+                    } else{
+                        return {
+                            height : document.documentElement.clientHeight
+                        }
+                    }
+                }
+    function panduan(){
+
+    }
+    window.onscroll=jieliu(function(){
+        console.log(imgs[0].getBoundingClientRect().top );
+      var h=  getWindow().height;
+      for(var i=0;i<imgs.length;i++){
+       if(h>=imgs[i].getBoundingClientRect().top ){
+           console.log(1);
+         imgs[i].src=imgs[i].dataset.src;
+      }
+    }
+      
+    },1000);
+    </script>
+</html>
