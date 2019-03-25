@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图1</title>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1023075_6a75gpfwj5p.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #banner{
+            position: relative;
+            overflow: hidden;
+            width: 520px;
+            height: 280px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        #banner:hover #btns_left{
+            display: block;
+        }
+        #banner:hover #btns_right{
+            display: block;
+        }
+        .promo-nav{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 280px;
+            list-style: none;
+        }
+        .promo-nav li{
+            float: left;
+            display: block;
+            width: 520px;
+            height: 280px;
+        }
+        .promo-nav li img{
+            width: 100%;
+            height: 100%;
+        }
+        .slt-nav{
+            position: absolute;
+            top: 260px;
+            left: 240px;
+            list-style: none;
+
+        }
+        .slt-nav li{
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            margin-right: 5px;
+        }
+        .slt-nav li:hover{
+            background-color: deeppink;
+        }
+        #btns_left{
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 40px;
+            height: 50px;
+            z-index:2;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #btns_left i{
+            font-size: 20px;
+            color: #777777;
+        }
+
+        #btns_right{
+            display: none;
+            position: absolute;
+            top: 120px;
+            right: 0;
+            width: 40px;
+            height: 50px;
+            z-index:2;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #btns_right i{
+            font-size: 20px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div id="btns_left">
+        <i class="iconfont icon-iconfontzuo"></i>
+    </div>
+    <div id="btns_right">
+        <i class="iconfont icon-iconfontyou"></i>
+    </div>
+    <ul class="promo-nav">
+        <li><img src="images/01.png"></li>
+    </ul>
+    <ul class="slt-nav">
+        <li class="showlist"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    window.onload=function () {
+
+        var promo = document.getElementsByClassName("promo-nav")[0];
+        var li = promo.getElementsByTagName("li")[0];
+        var img=li.getElementsByTagName("img")[0];
+        var zuo = document.getElementById('btns_left');
+        var you = document.getElementById('btns_right');
+        var slt=document.getElementsByClassName("slt-nav")[0];
+        var all=slt.getElementsByTagName("li");
+        var array =["images/01.png","images/02.png","images/03.png","images/04.png","images/05.png"]
+
+        var i=0;
+        var timer=null;
+        //定时器函数
+        function timeMove(item) {
+           timer= setInterval(function () {
+               if(item!==undefined){
+                    i=item;
+               }
+               i++;
+               if (i>4){
+                   i=0;
+               }
+               imglist(i);
+            },4000)
+        }
+        timeMove();
+        //图片函数
+        function imglist(item) {
+            img.src= array[item];
+        }
+        zuo.onclick=function () {
+            clearInterval(timer);
+            i--;
+            if(i<0){
+                i=4;
+            }
+            imglist(i);
+        }
+        you.onclick=function () {
+            clearInterval(timer);
+            i++;
+            if(i>4){
+                i=0;
+            }
+            imglist(i);
+        }
+
+
+    }
+</script>
+</body>
+</html>

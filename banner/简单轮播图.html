@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1023075_6a75gpfwj5p.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #banner{
+            position: relative;
+            overflow: hidden;
+            width: 520px;
+            height: 280px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        #banner:hover #btns_left{
+            display: block;
+        }
+        #banner:hover #btns_right{
+            display: block;
+        }
+        .promo-nav{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 280px;
+            list-style: none;
+        }
+        .promo-nav li{
+            float: left;
+            display: block;
+            width: 520px;
+            height: 280px;
+        }
+        .promo-nav li img{
+            width: 100%;
+            height: 100%;
+        }
+        .slt-nav{
+            position: absolute;
+            top: 260px;
+            left: 240px;
+            list-style: none;
+
+        }
+        .slt-nav li{
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            margin-right: 5px;
+        }
+
+        .slt-nav  .showlist{
+            background-color: deeppink;
+
+        }
+        #btns_left{
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 40px;
+            height: 50px;
+            z-index:2;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #btns_left i{
+            font-size: 20px;
+            color: #777777;
+        }
+
+        #btns_right{
+            display: none;
+            position: absolute;
+            top: 120px;
+            right: 0;
+            width: 40px;
+            height: 50px;
+            z-index:2;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #btns_right i{
+            font-size: 20px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div id="btns_left">
+        <i class="iconfont icon-iconfontzuo"></i>
+    </div>
+    <div id="btns_right">
+        <i class="iconfont icon-iconfontyou"></i>
+    </div>
+    <ul class="promo-nav">
+        <li><img src="images/01.png"></li>
+    </ul>
+    <ul class="slt-nav">
+        <li class="showlist"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+        var ban=document.getElementById("banner");
+        var promo = document.getElementsByClassName("promo-nav")[0];
+        var li = promo.getElementsByTagName("li")[0];
+        var img = li.getElementsByTagName("img")[0]
+        var zuo = document.getElementById("btns_left");
+        var you = document.getElementById("btns_right");
+        var slt = document.getElementsByClassName("slt-nav")[0];
+        var all = slt.getElementsByTagName("li");
+        var array =["images/01.png","images/02.png","images/03.png","images/04.png","images/05.png"]
+
+        var timer = null;//定时器
+
+        var i = 0;//第一张
+
+        function timemove(iteam) {
+            timer = setInterval(function () {
+                if (iteam !== undefined){
+                    i = iteam;
+                }
+                i++;
+                if (i>4){
+                    i = 0;
+                }
+                showimg(i);
+            },3000)
+        }
+        timemove();//调用定时器的函数
+
+        // 显示图片函数
+        function showimg(iteam) {
+            clearInterval(timer);//清除定时器
+            img.src = array[iteam];//array的下标
+            showspan(iteam);//调用下标函数，
+            timemove(iteam);//定义定时器从第几张图片开始
+        }
+        //向左移动
+        zuo.onclick = function () {
+            clearInterval(timer)//清除定时器
+            i--;
+            if (i<0){
+                i=4;
+            }
+            showimg(i);
+        }
+        //向右移动
+        you.onclick = function () {
+            clearInterval(timer);//清除定时器
+            i++;
+            if (i>4){
+                i = 0;
+            }
+            showimg(i);
+        }
+        // 显示下标函数
+        function showspan(iteam) {
+            for (let j = 0; j < all.length ; j++) {
+                all[j].classList.remove("showlist");//清除showlist类
+            }
+            all[iteam].classList.add("showlist");//新增showlist类
+
+        }
+
+        for (let i = 0 ; i<all.length; i++) {
+            all[i].onclick = function () {//下标点击事件
+                clearInterval(timer);//清除定时器
+                showimg(i);
+
+            }
+        }
+
+</script>
+</body>
+</html>
