@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .all {
+            width: 100px;
+            height: 30px;
+            margin: 100px auto;
+            background-color: #235EA4;
+
+        }
+
+        .all>li {
+
+            width: 100px;
+
+            background-color: #235EA4;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .all>li li {
+            width: 100px;
+            height: 30px;
+            background-color: #999;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .all ul {
+
+            left: 0;
+            top: 30px;
+            display: none;
+        }
+
+        #bottom {
+            position: relative;
+            height: 30px;
+            width: 60px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .guan {
+            background: #999999;
+        }
+
+        .kai {
+            background: #00EE00;
+        }
+
+        .yuan {
+            position: absolute;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background: #fff;
+            left: 5px;
+            top: 2.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="guan" id="bottom">
+        <div class="yuan">
+
+        </div>
+    </div>
+
+    <div class="warp">
+        <ul class="all">
+            <li>一级菜单
+                <ul>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+            <li>一级菜单
+                <ul>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+            <li>一级菜单
+                <ul>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+            console.log($("li"));
+            console.log($("#bottom"));
+            $("#bottom").click(function () {
+                $(this).hasClass("kai") ? $(this).removeClass("kai").addClass("guan").children().stop().animate({"left": "5px"}) : $(this).removeClass("guan").addClass("kai").children().stop().animate({"left": "30px"})
+            });
+            $('.all>li').click(function (e) {
+                $(this).children().stop()
+                .slideToggle().parent()
+                .siblings()
+                .children().stop().slideUp();
+            });
+           
+          
+
+        })
+    </script>
+</body>
+
+</html>
