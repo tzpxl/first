@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链式调用</title>
+</head>
+<style>
+    .box{
+        float: left;
+        margin: 0 5px;
+        border-radius:50%;
+        width: 15px;
+        height: 15px;
+        background: #888888;
+    }
+    .pitch{
+        background: #ff5500 !important;
+    }
+</style>
+<body>
+<div id="wrap">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+<script>
+    //js_jq.prototype
+    function $(index) {
+        if (index.slice(0, 1) == "#"){
+            this.box = {
+                id: document.querySelector(index)
+            };
+        } else {
+            this.box = {
+                class: document.querySelectorAll(index)
+            };
+        }
+
+        return this;
+    }
+    $.prototype.addClass = function (index){
+        if (this.box.class == undefined) {
+            this.box.id.classList.add(index);
+        } else {
+            var box = this.box.class;
+            for (var i = 0; i < box.length; i++) {
+                box[i].classList.add(index);
+            }
+        }
+        return this;
+    }
+    $.prototype.removeClass = function (index) {
+
+        if (this.box.class == undefined) {
+            this.box.id.classList.remove(index);
+        } else {
+            var box = this.box.class;
+            for (var i = 0; i < box.length; i++) {
+                box[i].classList.remove(index);
+            }
+        }
+        return this;
+    }
+    $.prototype.eq = function (index) {
+        this.box.id= this.box.class[index];
+        this.box.class=undefined;
+        return this;
+    }
+    $.prototype.click=function(fn){
+        if (this.box.class == undefined){
+            box.id.onclick=fnn;
+        } else {
+            var box = this.box.class;
+            for (let i = 0; i<box.length; i++) {
+                box[i].index=i;
+                box[i].onclick=fn;
+            }
+        }
+        return this;
+    }
+    var box = document.getElementsByClassName("box");
+    new $(".box").click(function(){
+        new $(".box").removeClass("pitch");
+        new $(".box").eq(this.index).addClass("pitch");
+    });
+</script>
+</body>
+
+</html>
