@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链式调用</title>
+    <style>
+        ul {
+            width: 110px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        ul li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #dddddd;
+            list-style: none;
+            float: left;
+            margin: 0 1px;
+        }
+
+        .onli {
+            background: linear-gradient(to right, skyblue, #0ff);
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <li class="onli"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+<script>
+    window.onload = function () {
+        var ul = document.getElementById("ul");
+        var li = ul.getElementsByTagName("li");
+
+
+        function obj() {
+            this.li = document.getElementsByTagName("li");
+        }
+        obj.prototype.add = function (ass) {
+            for (let i = 0; i < this.li.length; i++) {
+                this.li[i].className = ass;
+            }
+            return this;
+        }
+        console.log(new obj().add("on"))
+
+
+
+
+
+
+    //     function person() {
+    //         this.del = function () {
+    //             for (let i = 0; i < li.length; i++) {
+    //                 li[i].className = "";
+    //             }
+    //             return this;
+    //         }
+    //         this.add = function (ass) {
+    //             for (let i = 0; i < li.length; i++) {
+                    
+    //                 for (let i = 0; i < li.length; i++) {
+    //                     li[i].className = ass;
+                        
+    //                 }
+                    
+    //             }
+    //             return this;
+    //         }
+    //     }
+    //     for (let i = 0; i < li.length; i++) {
+    //         li[i].onclick = function () {
+    //             var p = new person();
+    //             p.del().add("onli");
+    //         }
+    //     }
+
+
+    }
+</script>
+
+</html>
