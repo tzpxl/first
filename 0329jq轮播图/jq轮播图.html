@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jq无缝轮播图</title>
+    <script src="../js/jquery-1.12.3.js"></script>
+
+  </head>
+  <style>
+    #container {
+      width: 590px;
+      height: 480px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #list {
+      width: 5900px;
+      height: 480px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    #list img {
+      float: left;
+    }
+
+    #buttons {
+      position: absolute;
+      height: 10px;
+      width: 136px;
+      z-index: 2;
+      bottom: 20px;
+      left: 227px;
+    }
+    a {
+      text-decoration: none;
+    }
+    #buttons span {
+      cursor: pointer;
+      float: left;
+      border: 1px solid #fff;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #333;
+      margin-right: 5px;
+    }
+
+    #buttons .on {
+      background: orangered;
+    }
+
+    .arrow {
+      cursor: pointer;
+      display: none;
+      line-height: 39px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      z-index: 2;
+      top: 220px;
+      background-color: RGBA(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+    .arrow:hover {
+      background-color: RGBA(0, 0, 0, 0.7);
+    }
+
+    #container:hover .arrow {
+      display: block;
+    }
+
+    #prev {
+      left: 0px;
+    }
+
+    #next {
+      right: 0px;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="list" style="left: -590px;">
+        <img src="../images/img/8.jpg" alt="8" />
+        <img src="../images/img/1.jpg" alt="1" />
+        <img src="../images/img/2.jpg" alt="2" />
+        <img src="../images/img/3.jpg" alt="3" />
+        <img src="../images/img/4.jpg" alt="4" />
+        <img src="../images/img/5.jpg" alt="5" />
+        <img src="../images/img/6.jpg" alt="6" />
+        <img src="../images/img/7.jpg" alt="7" />
+        <img src="../images/img/8.jpg" alt="8" />
+        <img src="../images/img/1.jpg" alt="1" />
+      </div>
+      <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+        <span index="5"></span>
+        <span index="6"></span>
+        <span index="7"></span>
+        <span index="8"></span>
+      </div>
+      <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+      <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    </div>
+
+    <script>
+      $(function() {
+        var container = $("#container");
+        var list = $("#list");
+        var buttons = $("#buttons span");
+        var prev = $("#prev");
+        var next = $("#next");
+        var index = 1;
+        var len = 8;
+        var interval = 3000;
+        var timer;
+
+        function animate(offset) {
+          var left = parseInt(list.css("left")) + offset;
+          if (offset > 0) {
+            offset = "+=" + offset;
+          } else {
+            offset = "-=" + Math.abs(offset);
+          }
+          list.animate(
+            {
+              left: offset
+            },
+            300,
+            function() {
+              if (left > -200) {
+                list.css("left", -590 * len);
+              }
+              if (left < -590 * len) {
+                list.css("left", -590);
+              }
+            }
+          );
+        }
+
+        function showButton() {
+          buttons
+            .eq(index - 1)
+            .addClass("on")
+            .siblings()
+            .removeClass("on");
+        }
+
+        function play() {
+          timer = setTimeout(function() {
+            next.trigger("click");
+            play();
+          }, interval);
+        }
+
+        function stop() {
+          clearTimeout(timer);
+        }
+
+        next.bind("click", function() {
+          if (list.is(":animated")) {
+            return;
+          }
+          if (index == 8) {
+            index = 1;
+          } else {
+            index += 1;
+          }
+          animate(-590);
+          showButton();
+        });
+
+        prev.bind("click", function() {
+          if (list.is(":animated")) {
+            return;
+          }
+          if (index == 1) {
+            index = 8;
+          } else {
+            index -= 1;
+          }
+          animate(590);
+          showButton();
+        });
+
+        buttons.each(function() {
+          $(this).bind("click", function() {
+            if (list.is(":animated") || $(this).attr("class") == "on") {
+              return;
+            }
+            var myIndex = parseInt($(this).attr("index")); //index这个是点击
+            var offset = -590 * (myIndex - index); //当前的下标
+
+            animate(offset);
+            index = myIndex;
+            showButton();
+          });
+        });
+
+        container.hover(stop, play);
+
+        play();
+      });
+    </script>
+  </body>
+</html>
