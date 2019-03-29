@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-1.12.3.js"></script>
+    <style>
+        #container {
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #list {
+            overflow: hidden;
+            width: 4200px;
+            position: absolute;
+            left: -600px;
+
+        }
+
+        img {
+            float: left;
+        }
+
+        #buttons {
+            width: 150px;
+            position: absolute;
+            bottom: 20px;
+            left: 222px;
+            z-index: 1000;
+        }
+
+        #buttons span {
+            display: inline-block;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            /* background: #222; */
+            border: 1px solid #222222;
+        }
+
+        /* .div3{
+            display: none;
+        } */
+        /* img:hover .div3{
+            display: block;
+        } */
+
+        #next {
+            position: absolute;
+            top: 160px;
+            right: 0;
+            background: rgba(0, 0, 0, .4);
+        }
+
+        #prev {
+            position: absolute;
+            top: 160px;
+            left: 0;
+            background: rgba(0, 0, 0, .4);
+
+        }
+
+        .on {
+            background: orange;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<style></style>
+
+<body>
+    <div id="container">
+        <div id="list">
+            <img src="img/5.jpg" alt="">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <img src="img/1.jpg" alt="">
+        </div>
+        <div id="buttons">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+            <span index="5"></span>
+        </div>
+        <div id="next"><img src="img/next.png" alt=""></div>
+        <div id="prev"><img src="img/prev.png" alt=""></div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        var container = $('#container');
+        var list = $('#list');
+        var buttons = $('#buttons span');
+        var prev = $('#prev');
+        var next = $('#next');
+        var index = 1;
+        var len = 5;
+        var interval = 3000;
+        var timer;
+
+
+        function animate(offset) {
+            var left = parseInt(list.css('left')) + offset;
+            if (offset > 0) {
+                offset = '+=' + offset;
+            } else {
+                offset = '-=' + Math.abs(offset);
+            }
+            list.animate({
+                'left': offset
+            }, 300, function () {
+                if (left > -200) {
+                    list.css('left', -600 * len);
+                }
+                if (left < (-600 * len)) {
+                    list.css('left', -600);
+                }
+            });
+        }
+
+        function showButton() {
+            buttons.eq(index - 1).addClass('on').siblings().removeClass('on');
+        }
+
+        function play() {
+            timer = setTimeout(function () {
+                next.trigger('click');
+                play();
+            }, interval);
+        }
+
+        function stop() {
+            clearTimeout(timer);
+        }
+
+        next.bind('click', function () {
+            if (list.is(':animated')) {
+                return;
+            }
+            if (index == 5) {
+                index = 1;
+            } else {
+                index += 1;
+            }
+            animate(-600);
+            showButton();
+        });
+
+        prev.bind('click', function () {
+            if (list.is(':animated')) {
+                return;
+            }
+            if (index == 1) {
+                index = 5;
+            } else {
+                index -= 1;
+            }
+            animate(600);
+            showButton();
+        });
+
+        buttons.each(function () {
+            $(this).bind('click', function () {
+                if (list.is(':animated') || $(this).attr('class') == 'on') {
+                    return;
+                }
+                var myIndex = parseInt($(this).attr('index'));
+                var offset = -600 * (myIndex - index);
+
+                animate(offset);
+                index = myIndex;
+                showButton();
+            })
+        });
+
+        container.hover(stop, play);
+
+        play();
+
+    });
+</script>
+
+</html>
