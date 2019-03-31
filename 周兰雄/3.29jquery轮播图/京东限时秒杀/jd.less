@@ -1,0 +1,379 @@
+@charset "utf-8";
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: couriernew, courier, monospace;
+}
+
+small {
+    font-size: 12px;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #000;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    vertical-align: top;
+}
+//京东秒杀 开始
+.jdms{
+    background: #eee;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 1190px;
+    height: 275px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .sk_hd{
+        position: relative;
+        float: left;
+        width: 190px;
+        height: 275px;
+        background: #e83632;
+        color: #fff;
+    }
+    .sk_hd_lk {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+    }
+    .sk_tit{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        top: 42px;
+        font-size: 34px;
+    }
+    .sk_subtit{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    top: 90px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px; 
+    }
+    .sk_ico{
+        position: absolute;
+        left: 86px;
+        top: 126px;
+        display: block;
+        width: 20px;
+        height: 33px;
+        background-image: url(http://misc.360buyimg.com/mtd/pc/index_2017/2.1.0/static/images/sprite.seckill.png);
+        background-position: -35px -25px;
+    }
+    .sk_desc{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        top: 170px;
+        font-size: 16px;
+    }
+    .sk_cd{
+        position: absolute;
+        top: 212px;
+        left: 30px;
+        height: 40px;
+    }
+    .cd_item {
+        position: relative;
+        float: left;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background-color: #2f3430;
+        margin-right: 5px;
+        position: relative;
+        line-height: 40px;
+        font-weight: bold;
+        font-size: 20px; 
+    }
+    .cd_item:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 50%;
+        height: 1px;
+        background: #e83632;
+    }
+}
+.sk_bd{
+    float: left;
+    .sk_list {
+        position: relative;
+        float: left;
+        width: 799px;
+        border-right: solid 1px #f0f0f0;
+        height: 275px;
+        overflow: hidden;
+    }
+    .sk_list_inner {
+        position: relative;
+        width: 800px;
+        height: 275px;
+    }
+    .slider_control{
+        top: 110px;
+        position: absolute;
+        top: 50%;
+       color: #fff;
+        border-radius: 0;
+        width: 20px;
+        height: 40px;
+        line-height: 40px;
+        
+        background-color: rgba(0,0,0,.15);
+        margin-top: -20px;
+        font-size: 20px;
+        z-index: 2;
+        border: none;
+        outline: none;
+    }
+    .sk_item_lk {
+        position: relative;
+        display: block;
+        width: 190px;
+        height: 275px;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .sk_item_img {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        left: 50%;
+        margin-left: -70px;
+        top: 40px;
+        -webkit-transition: opacity ease 0.2s;
+        -o-transition: opacity ease 0.2s;
+        -moz-transition: opacity ease 0.2s;
+        transition: opacity ease 0.2s;
+    }
+    .lazyimg_img {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        -webkit-transition: opacity 0.2s linear;
+        -o-transition: opacity 0.2s linear;
+        -moz-transition: opacity 0.2s linear;
+        transition: opacity 0.2s linear;
+        
+    }
+    .sk_item_name {
+        position: absolute;
+        top: 190px;
+        left: 0;
+        width: 160px;
+        padding: 0 15px;
+        line-height: 30px;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #666;
+    }
+    .sk_item_price {
+        position: absolute;
+        left: 15px;
+        top: 230px;
+        width: 160px;
+        height: 20px;
+        padding: 1px;
+        background: #e6382f;
+        line-height: 20px;
+    }
+    .sk_item_price_new {
+        float: left;
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .mod_price i {
+        margin-right: 3px;
+        font-family: arial,sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .sk_item_price_origin {
+        float: left;
+        width: 80px;
+        height: 20px;
+        background: #fff;
+        text-align: center;
+        color: #b7bcb8;
+        font-size: 12px;
+        text-decoration: line-through;
+    }
+    .mod_price i {
+        margin-right: 3px;
+        font-family: arial,sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .sk_item:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 275px;
+        background: #f0f0f0;
+    }
+    .slider_control_prev {
+        left: 0;
+    }
+    .slider_control_next{
+        right: 0;
+    }
+}
+.sk_chn{
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 260px;
+    padding: 8px 10px 7px;
+    .sk_chn_inner {
+        width: 100%;
+        height: 100%;
+    }
+    .sk_chn .slider_indicators {
+        bottom: 16px;
+        position: absolute;
+        left: 50%;
+        font-size: 0;
+        text-align: center;
+    }
+    .sk_chn_img {
+        width: 180px;
+        height: 260px;
+    }
+    .sk_chn_img img{
+        width: 100%;
+        height: 100%;
+    }
+    
+
+
+    .slider_indicators {
+        position: absolute;
+        left: 50%;
+        font-size: 0;
+        text-align: center;
+        bottom: 16px;
+    }
+    
+    .slider_indicators_btn{
+        display: inline-block;
+        border-radius: 50%;
+    background: #c0c0c0;
+    width: 6px;
+    height: 6px;
+    margin: 4px;  
+    }
+   
+}
+//京东秒杀 结束
