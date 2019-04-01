@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝轮播图</title>
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1114813_13p067a65rb.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #banner{
+            position: relative;
+            overflow: hidden;
+            width: 520px;
+            height: 280px;
+            margin: 0 auto;
+        }
+        .banlist{
+            width: 3640px;
+            height: 280px;
+            margin-left: -520px;
+        }
+        .banlist li{
+            float: left;
+        }
+        .tablist{
+            position: absolute;
+            right: 225px;
+            bottom: 8px;
+        }
+        .tablist li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 3px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+        .tablist li:hover{
+            background-color: #ff5500;
+        }
+
+        .showlist{
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            height: 50px;
+        }
+        #left{
+             float: left;
+            width: 50px;
+            height: 100%;
+            color: #ffffff;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #right{
+            float: right;
+            width: 50px;
+            height: 100%;
+            color: #ffffff;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.3);
+        }
+        .tablist .tion{
+              background-color: #ff5500;
+          }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <!---->
+        <ul class="banlist">
+            <li><img src="images/05.png"/></li>
+            <li><img src="images/01.png"/></li>
+            <li><img src="images/02.png"/></li>
+            <li><img src="images/03.png"/></li>
+            <li><img src="images/04.png"/></li>
+            <li><img src="images/05.png"/></li>
+            <li><img src="images/01.png"/></li>
+        </ul>
+        <ul class="tablist">
+            <li class="tion"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="showlist">
+            <div id="left"><i class="iconfont iconleft"></i></div>
+            <div id="right"><i class="iconfont iconyou"></i></div>
+        </div>
+    </div>
+     <script src="js/jquery-1.12.3.js"></script>
+         <script>
+             $(function() {
+                 var index=1;//声明一个全局变量index并赋值为1
+                 var timer=null;
+                    //给左边的按钮绑定点击监听事件
+                 $("#left").click(function () {
+                     clearInterval(timer);
+                     index--;
+
+                    if(index == 0){
+                        $(".banlist").css("marginLeft",-3120);
+                        index=5;
+                    }
+                     $(".banlist").animate({"marginLeft":-520 *index},300);
+
+                        timemove(index);
+                 });
+
+                 //给右边的按钮绑定点击监听事件
+                $("#right").click(function () {
+                    clearInterval(timer);
+                    index++;
+
+                    if(index == 6){
+                        $(".banlist").css("marginLeft",0);
+                        index=1;
+                    }
+                    $(".banlist").animate({"marginLeft":-520 *index},300);
+                    timemove(index);
+                 });
+
+                //定时器
+                 function timemove(item) {
+                     timer = setInterval(function () {
+                         if (item !== undefined){
+                             index = item;
+                         }
+                         index++;
+                         if (index > 5){
+                             $(".banlist").css("marginLeft",0);
+                             index = 1;
+                         }
+
+                         $(".banlist").animate({"marginLeft":-520 *index},300);
+                         tabList(index);
+                     },3000)
+                 }
+
+                 timemove();//调用定时器的函数
+
+                 //显示下标函数
+                 function tabList(item) {
+
+                     $(".tablist li").eq(index - 1).addClass("tion").siblings().removeClass("tion");
+
+                 }
+
+
+             })
+         </script>
+</body>
+</html>
