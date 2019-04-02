@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        form{
+            width: 500px;
+            margin: 50px auto;
+        }
+    input{
+        width: 200px;
+        height: 20px;
+    }
+    .mimaqiangdu{
+        height: 30px;
+        margin: 5px 0;
+    }
+    .mimaqiangdu div{
+        
+        display: inline-block;
+        width: 60px;
+        height: 10px;
+    }
+    .yanzhengma{
+        width: 200px;
+        height: 30px;
+        background: #eeeeee;
+        margin: 5px 0;
+    }
+    </style>
+</head>
+<body>
+    <form id="from" action="http:www.baidu.com">
+            账号：<input type="text" id="account" name="account"><span class="zhanghao"></span> <br/>
+            密码：<input type="password" id="password" name="password"><br>
+            确认密码：<input type="password" id="passwords" name="password"><span class="mima"></span> 
+            <div class="mimaqiangdu">
+                密码强度：<div class="ruo" style="background: red"></div>
+            <div style="background: yellow" class="zhong"></div>
+            <div style="background: greenyellow" class="qiang"></div></div>
+            验证码：<input type="text" id="yanzhengma"><span class="huanyizhang">换一张</span>
+            <div class="yanzhengma"></div> <span class="yanzheng"></span>  
+            <input type="submit" name="" value="确定" id="">
+    </form>
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script>
+        //账号
+        $("#from").submit(function(){
+            mima();
+            zhanghao();
+            aaa();
+            if(aaa()&&zhanghao()&&mima()){
+                return true;
+            }else{
+                //alert("信息错误")
+                return false;
+
+            }
+        })
+    $("#account").blur(function(){
+        
+        zhanghao();
+    })
+    //密码
+    $("#passwords").blur(function(){
+       
+        mima();
+    })
+    //验证码
+    $("#yanzhengma").blur(function(){
+        aaa();
+      
+    })
+    $(".huanyizhang").click(function(){
+        yanzheng();
+    })
+
+    //账号方法
+    function zhanghao(){
+      var a=  $("#account").val();
+        if(a.length<=14&&a.length>=6){
+            $(".zhanghao").text("帐号格式正确");
+            return true;
+        }else{
+            $(".zhanghao").text("帐号格式错误");
+            return false;
+        }
+    }
+    $("")
+    //验证码判断
+    function aaa(){
+        var b=  $("#yanzhengma").val();
+        if(b==a){
+            $(".yanzheng").text("验证码正确")
+            return true;
+        }else{
+            $(".yanzheng").text("验证码不正确")
+            return false;
+        }
+    }
+    //密码方法
+    $(".mimaqiangdu div").hide(); 
+    function mima(){
+        var a=$("#passwords").val();
+        var b=$("#password").val();
+        if(a==""||a==null){
+            $(".mima").text("密码为空");
+            return false;
+        }else if(a==b){
+            $(".mima").text("密码相等");
+            $(".mimaqiangdu div").hide(); 
+            var ruo = /^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/;//弱的正则
+            var zhong =/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;//中的正则
+                    
+                    if (!ruo.exec(a)){ //判断是否为弱
+                        if (!zhong.exec(a)){//判断是否为中
+                            $(".mimaqiangdu div").show();  
+                        } else{
+                            $(".mimaqiangdu div").show().eq(2).hide(); 
+                        }
+                    }else{
+                        $(".mimaqiangdu div").eq(0).show();
+                    }
+
+        }else{
+            $(".mima").text("密码不相等");
+            return false;
+        }
+    
+        
+    }
+    
+
+    var a="";  
+    //验证码
+    yanzheng();
+     
+    function yanzheng(){
+         a="";
+        for(var i=0;i<4;i++){
+            var c=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z'];
+         var b=parseInt(Math.random()*100)%24;
+         console.log(b)
+         a+=c[b];
+        }
+        $(".yanzhengma").text(a);
+    }
+
+
+    </script>    
+</body>
+
+</html>
